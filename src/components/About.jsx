@@ -1,57 +1,60 @@
 import React from 'react';
-import { FileHtml, FileCss, FileCode, Atom, Cube } from '@phosphor-icons/react';
 
 export default function About() {
-  const skills = [
-    { icon: <FileHtml weight="light" />, name: 'HTML5' },
-    { icon: <FileCss weight="light" />, name: 'CSS3' },
-    { icon: <FileCode weight="light" />, name: 'JavaScript' },
-    { icon: <Atom weight="light" />, name: 'React' },
-    { icon: <Cube weight="light" />, name: 'Spline 3D' },
+  const stats = [
+    { value: '500+', label: 'Problems Solved Across All Platforms' },
+    { value: '5+', label: 'Projects Completed' },
+    { value: '9.02', label: 'College CGPA' }
   ];
 
   return (
-    <section id="about" className="py-32 relative z-[4]">
+    <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-8 max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="flex justify-center" data-aos="fade-right" data-aos-duration="1000">
-            <div className="w-[350px] h-[350px] max-w-full rounded-full p-[8px] bg-gradient-to-br from-[var(--color-brand-glow)] via-transparent to-[var(--color-brand-glow)] relative transition-transform duration-500 ease-in-out hover:-translate-y-[15px] shadow-[0_0_50px_rgba(216,236,248,0.1)] hover:shadow-[0_15px_60px_rgba(216,236,248,0.2)]">
-              <img 
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                alt="Milad" 
-                className="w-full h-full rounded-full object-cover grayscale-[20%] contrast-[1.1]"
-              />
-            </div>
-          </div>
-          <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] mb-6 tracking-tight">
-              Crafting immersive <br />web experiences.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Narrative Content */}
+          <div data-aos="fade-right" data-aos-duration="1000">
+            <h2 className="text-[clamp(2.5rem,4vw,3.5rem)] font-extrabold mb-8 tracking-tight">
+              Who I <span className="text-[var(--color-brand-glow)]">Am.</span>
             </h2>
-            <p className="text-[1.1rem] text-[var(--text-secondary)] mb-10 max-w-[600px]">
-              Hi, I'm Milad. I blend high-end cinematic design with futuristic web technologies to build interactive, performant, and visually stunning digital products. My passion lies in pushing the boundaries of what's possible on the web.
-            </p>
-            
-            <div className="mt-10">
-              <h3 className="text-[1.2rem] mb-4 text-[var(--color-brand-glow)] font-semibold" data-aos="fade-up" data-aos-delay="300">
-                Core Technologies
-              </h3>
-              <div className="flex gap-6 flex-wrap">
-                {skills.map((skill, index) => (
-                  <div 
-                    key={skill.name}
-                    className="flex flex-col items-center gap-2 p-4 bg-[var(--color-brand-glass)] border border-[var(--color-brand-border)] rounded-xl backdrop-blur-[5px] transition-all duration-300 ease-in-out hover:bg-[var(--color-brand-dark-glow)] hover:border-[var(--color-brand-glow)] hover:-translate-y-[5px] hover:shadow-[0_5px_20px_rgba(216,236,248,0.15)]"
-                    data-aos="fade-up" 
-                    data-aos-delay={400 + index * 50}
-                  >
-                    <div className="text-3xl text-white">
-                      {skill.icon}
-                    </div>
-                    <span className="text-[0.8rem] opacity-80">{skill.name}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="text-[1.1rem] text-[var(--text-secondary)] space-y-6 leading-relaxed">
+              <p>
+                I am an AI and Software Developer specializing in machine learning, 
+                computer vision, and intelligent automation systems. I have built practical, 
+                production-focused solutions such as stock prediction engines, real-time vision pipelines, 
+                and AI-powered collaboration bots.
+              </p>
+              <p>
+                My expertise spans Python, OpenCV, Flask, AWS, and modern JavaScript frameworks, 
+                enabling me to work across the full stack—from model development and API integration 
+                to frontend implementation and deployment. I enjoy creating scalable, user-centric 
+                applications that solve real-world problems.
+              </p>
+              <p>
+                I actively compete on LeetCode, CodeForces, and CodeChef while developing 
+                real-world projects. My approach combines algorithmic thinking with modern web 
+                technologies to create impactful digital solutions.
+              </p>
             </div>
           </div>
+
+          {/* Stat Cards */}
+          <div className="flex flex-col gap-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            {stats.map((stat, idx) => (
+              <div 
+                key={idx}
+                className="flex flex-col items-center justify-center p-10 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-2 hover:border-[rgba(216,236,248,0.3)] hover:shadow-[0_10px_30px_rgba(216,236,248,0.1)] text-center"
+              >
+                <h3 className="text-5xl font-extrabold text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                  {stat.value}
+                </h3>
+                <p className="text-[var(--text-secondary)] text-sm font-medium tracking-wide uppercase">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
