@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, TerminalWindow, BracketsCurly } from '@phosphor-icons/react';
+import GridScan from './GridScan';
 
 export default function CodingProfiles() {
   const profiles = [
@@ -27,8 +28,24 @@ export default function CodingProfiles() {
   ];
 
   return (
-    <section id="coding-profiles" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-8 max-w-[1200px]">
+    <section id="coding-profiles" className="py-24 relative overflow-hidden bg-black">
+      {/* Background Interactive Scan Grid */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#00b4a6"
+          gridScale={0.1}
+          scanColor="#00e5cc"
+          scanOpacity={0.4}
+          enablePost
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+        />
+      </div>
+
+      <div className="container mx-auto px-8 max-w-[1200px] relative z-10">
         <h2 
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight"
           data-aos="fade-up"

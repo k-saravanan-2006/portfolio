@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, CalendarBlank } from '@phosphor-icons/react';
+import Antigravity from './Antigravity';
 
 export default function Experience() {
   const experiences = [
@@ -28,8 +29,29 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-8 max-w-[1000px]">
+    <section id="experience" className="py-24 relative overflow-hidden bg-black">
+      {/* Background Interactive 3D Particles */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Antigravity
+          count={300}
+          magnetRadius={10}
+          ringRadius={6}
+          waveSpeed={0.4}
+          waveAmplitude={1}
+          particleSize={1.5}
+          lerpSpeed={0.05}
+          color="#00b4a6"
+          autoAnimate
+          particleVariance={1}
+          rotationSpeed={0}
+          depthFactor={1}
+          pulseSpeed={3}
+          particleShape="capsule"
+          fieldStrength={10}
+        />
+      </div>
+      
+      <div className="container mx-auto px-8 max-w-[1000px] relative z-10">
         <h2 
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-16 tracking-tight"
           data-aos="fade-right"

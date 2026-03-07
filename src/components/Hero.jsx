@@ -1,4 +1,6 @@
 import React from 'react';
+import ShinyText from './ShinyText';
+import DecryptedText from './DecryptedText';
 
 export default function Hero() {
   return (
@@ -28,6 +30,83 @@ export default function Hero() {
           style={{ background: 'transparent' }}
         >
         </iframe>
+      </div>
+
+      {/* 
+        New Bottom Spline model (reactiveorb-omExcszM75CdlaZsz6BIOmJW)
+        Positioned at the absolute bottom of the container.
+      */}
+      <div className="absolute bottom-[-150px] left-0 w-full h-[50vh] z-20 pointer-events-auto overflow-hidden">
+        <iframe
+          src='https://my.spline.design/reactiveorb-omExcszM75CdlaZsz6BIOmJW/'
+          frameBorder='0'
+          width='100%'
+          height='100%'
+          style={{ background: 'transparent' }}
+          title="Bottom Spline Animation"
+        ></iframe>
+      </div>
+      {/* 
+        Hero Text Content (Left-aligned)
+      */}
+      <div
+        className="absolute left-[5%] md:left-[8%] top-1/2 -translate-y-1/2 z-30 flex flex-col items-start justify-center max-w-[800px] pointer-events-none"
+        data-aos="fade-right"
+        data-aos-duration="1500"
+      >
+        <h1
+          className="text-[clamp(3rem,6vw,5.5rem)] font-light tracking-[0.05em] text-white leading-tight mb-2 uppercase"
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            textShadow: '0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.3)'
+          }}
+        >
+          <DecryptedText
+            text="SARAVANAN K"
+            animateOn="view"
+            revealDirection="start"
+            speed={60}
+            maxIterations={95}
+            sequential={true}
+          />
+        </h1>
+        <h2
+          className="text-[clamp(1.5rem,3vw,2.5rem)] font-light leading-[1.2] mb-6"
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            background: 'linear-gradient(90deg, #ffffff 0%, #00b4a6 50%, #00e5cc 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            display: 'inline-block',
+          }}
+        >
+          B.Tech Artificial Intelligence<br />
+          & Data Science
+        </h2>
+        <p className="text-[clamp(0.9rem,1.2vw,1rem)] font-light text-[#888888] max-w-[500px] mb-10 leading-relaxed tracking-wide" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <ShinyText
+            text={'Passionate AI & Data Science student who loves building smart, data-driven solutions.'}
+            speed={2}
+            delay={0}
+            color="#888888"
+            shineColor="#ffffff"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </p>
+        <div className="glow-border-container pointer-events-auto mt-4">
+          <a
+            href="#contact"
+            className="flex items-center justify-center px-[37px] py-[17px] bg-[#000] !text-white text-sm font-semibold rounded-[0.5em] transition-all duration-300 shadow-[2px_2px_3px_#000000b4]"
+            style={{ fontFamily: 'Montserrat, sans-serif', textDecoration: 'none' }}
+          >
+            Contact Me
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -17,6 +17,40 @@
   }
 }
 
+/* Custom Text Gradient Animation */
+.animate-text-gradient {
+  background: linear-gradient(
+    to right,
+    #888888 0%,
+    #00c0a3 25%,
+    #ffffff 50%,
+    #00c0a3 75%,
+    #888888 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-gradient 4s linear infinite;
+}
+
+@keyframes text-gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Custom Nav Link Hover Glow */
+.hover-text-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-text-glow:hover {
+  color: #00b4a6 !important;
+  text-shadow: 0 0 8px rgba(0, 180, 166, 0.8), 0 0 16px rgba(0, 180, 166, 0.4);
+}
+
 :root {
   --bg-color: #05060f;
   --text-primary: #ffffff;
@@ -37,6 +71,36 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Animated Gradient Border Button */
+.glow-border-container {
+  position: relative;
+  padding: 3px;
+  background: linear-gradient(90deg, #ffffff 0%, #00b4a6 50%, #00e5cc 100%);
+  border-radius: 0.9em;
+  transition: all 0.4s ease;
+  display: inline-block;
+}
+
+.glow-border-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.9em;
+  z-index: -10;
+  filter: blur(0);
+  transition: filter 0.4s ease;
+}
+
+.glow-border-container:hover::before {
+  background: linear-gradient(90deg, #ffffff 0%, #00b4a6 50%, #00e5cc 100%);
+  filter: blur(1.2em);
+}
+
+.glow-border-container:active::before {
+  filter: blur(0.2em);
 }
 
 /* Subtle White Light Spots */

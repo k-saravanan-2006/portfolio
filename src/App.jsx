@@ -12,6 +12,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Ticker from './components/Ticker';
 import Footer from './components/Footer';
+import ClickSpark from './components/ClickSpark';
+import SpotlightCursor from './components/SpotlightCursor';
 
 function App() {
   useEffect(() => {
@@ -23,7 +25,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ClickSpark
+      sparkColor='#00e5cc'
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+    >
       <div className="light-spots"></div>
       <Header />
       <main>
@@ -37,7 +45,8 @@ function App() {
       </main>
       <Ticker />
       <Footer />
-    </>
+      <SpotlightCursor />
+    </ClickSpark>
   );
 }
 
