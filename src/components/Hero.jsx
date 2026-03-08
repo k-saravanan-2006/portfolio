@@ -1,10 +1,11 @@
 import React from 'react';
 import ShinyText from './ShinyText';
 import DecryptedText from './DecryptedText';
+import LightRays from './LightRays';
 
 export default function Hero() {
   return (
-    <section id="home" className="h-[100vh] w-full relative overflow-hidden bg-black flex items-center justify-center">
+    <section id="home" className="h-[100vh] w-full relative overflow-hidden bg-black flex items-center justify-center pt-0 pb-[5px]">
       {/* Background Grid Pattern */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-20"
@@ -13,6 +14,25 @@ export default function Hero() {
           backgroundSize: '80px 80px'
         }}
       ></div>
+
+      {/* Volumetric Light Rays Overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#00b4a6"
+          raysSpeed={1.3}
+          lightSpread={1.2}
+          rayLength={3}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0}
+          distortion={0}
+          className="custom-rays opacity-40 mix-blend-screen"
+          pulsating={false}
+          fadeDistance={1.5}
+          saturation={1}
+        />
+      </div>
 
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(216,236,248,0.08)_0%,transparent_60%)] z-10 pointer-events-none"></div>

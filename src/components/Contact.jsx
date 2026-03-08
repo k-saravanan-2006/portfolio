@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden">
+    <section id="contact" className="py-[5px] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Squares
           direction="diagonal"
@@ -28,7 +28,7 @@ export default function Contact() {
           hoverFillColor="#00e5cc"
         />
       </div>
-      <div className="container mx-auto px-8 max-w-[1200px] relative z-10 pointer-events-none">
+      <div className="container mx-auto px-0 max-w-[1200px] relative z-10 pointer-events-none">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 items-center pointer-events-auto">
           <div data-aos="fade-right" data-aos-duration="1000">
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] mb-6 tracking-tight">
@@ -43,7 +43,7 @@ export default function Contact() {
                 <a
                   key={idx}
                   href="#"
-                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.8)] hover:-translate-y-[5px]"
+                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl text-white transition-all duration-300 hover:bg-[rgb(0,180,166)] hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:-translate-y-[5px]"
                   data-aos="zoom-in"
                   data-aos-delay={300 + idx * 100}
                 >

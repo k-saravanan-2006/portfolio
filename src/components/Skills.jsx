@@ -34,8 +34,8 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden flex flex-col items-center">
-      <div className="container mx-auto px-8 max-w-[1200px] text-center w-full z-10 mb-8">
+    <section id="skills" className="py-[5px] relative overflow-hidden flex flex-col items-center">
+      <div className="container mx-auto px-0 max-w-[1200px] text-center w-full z-10 mb-8">
         <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold tracking-tight"
           data-aos="fade-up"

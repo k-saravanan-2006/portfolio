@@ -28,7 +28,7 @@ export default function CodingProfiles() {
   ];
 
   return (
-    <section id="coding-profiles" className="py-24 relative overflow-hidden bg-black">
+    <section id="coding-profiles" className="py-[5px] relative overflow-hidden bg-black">
       {/* Background Interactive Scan Grid */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <GridScan
@@ -45,7 +45,7 @@ export default function CodingProfiles() {
         />
       </div>
 
-      <div className="container mx-auto px-8 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-0 max-w-[1200px] relative z-10">
         <h2 
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight"
           data-aos="fade-up"

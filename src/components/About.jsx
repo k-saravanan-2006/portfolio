@@ -10,8 +10,11 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-black min-h-[80vh]">
+    <section id="about" className="py-[5px] relative overflow-hidden bg-black min-h-[80vh]">
       <div className="absolute inset-0 z-0 pointer-events-auto">
+        {/* Top Fade Mask */}
+        <div className="absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b from-black via-black/80 to-transparent z-[1] pointer-events-none" />
+        
         <PixelBlast
           variant="square"
           pixelSize={2}
@@ -31,8 +34,11 @@ export default function About() {
           edgeFade={0.25}
           transparent={true}
         />
+
+        {/* Bottom Fade Mask */}
+        <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black via-black/80 to-transparent z-[1] pointer-events-none" />
       </div>
-      <div className="container mx-auto px-8 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-0 max-w-[1200px] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Narrative Content */}
