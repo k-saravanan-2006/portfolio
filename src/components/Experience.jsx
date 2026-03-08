@@ -68,7 +68,7 @@ export default function Experience() {
               data-aos-delay={idx * 150}
             >
               {/* Timeline dot */}
-              <div className="absolute left-[-21px] top-1 flex items-center justify-center w-10 h-10 rounded-full bg-[#05060f] border-2 border-[var(--color-brand-glow)] shadow-[0_0_15px_rgba(216,236,248,0.4)]">
+              <div className="absolute left-[-21px] top-1 flex items-center justify-center w-10 h-10 rounded-full bg-[#000000] border-2 border-[var(--color-brand-glow)] shadow-[0_0_15px_rgba(216,236,248,0.4)]">
                 <Briefcase size={20} weight="fill" className="text-[var(--color-brand-glow)]" />
               </div>
 

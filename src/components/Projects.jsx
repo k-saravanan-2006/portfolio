@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import HoverProjectCard from './HoverProjectCard';
 
 export default function Projects() {
   const projects = [
@@ -45,50 +45,7 @@ export default function Projects() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
-            <a 
-              key={idx}
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex flex-col rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-[rgba(216,236,248,0.3)] hover:shadow-[0_10px_30px_rgba(216,236,248,0.1)]"
-              data-aos="fade-up"
-              data-aos-delay={idx * 100}
-            >
-              {/* Image Header */}
-              <div className="w-full h-[220px] overflow-hidden relative border-b border-[var(--glass-border)]">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
-                />
-              </div>
-
-              {/* Content Body */}
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                  <div className="text-[var(--color-brand-glow)] p-2 rounded-full bg-[rgba(216,236,248,0.05)] opacity-0 group-hover:opacity-100 transition-all -translate-y-2 group-hover:translate-y-0">
-                    <ArrowUpRight size={20} weight="bold" />
-                  </div>
-                </div>
-                <p className="text-[var(--text-secondary)] mb-6 text-sm leading-relaxed flex-1">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack Pills */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.stack.map((tech, i) => (
-                    <span 
-                      key={i} 
-                      className="text-xs font-semibold px-3 py-1 rounded-full bg-[#05060f] border border-[rgba(216,236,248,0.1)] text-[var(--color-brand-glow)]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </a>
+            <HoverProjectCard key={idx} project={project} idx={idx} />
           ))}
         </div>
       </div>

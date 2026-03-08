@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #05060f;
+  --color-brand-bg: #000000;
   --color-brand-glow: #D8ECF8;
   --color-brand-dark-glow: rgba(216, 236, 248, 0.15);
   --color-brand-glass: rgba(255, 255, 255, 0.03);
@@ -52,7 +52,7 @@
 }
 
 :root {
-  --bg-color: #05060f;
+  --bg-color: #000000;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --accent-glow: #D8ECF8;

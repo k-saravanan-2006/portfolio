@@ -44,7 +44,7 @@ export default function Gallery() {
                 alt={`Design ${idx + 1}`} 
                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-[#05060f]/70 backdrop-blur-[3px] flex items-center justify-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
+              <div className="absolute inset-0 bg-[#000000]/70 backdrop-blur-[3px] flex items-center justify-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
                 <ArrowsOut className="text-[3rem] text-[var(--color-brand-glow)] scale-50 transition-transform duration-300 group-hover:scale-100" />
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function Gallery() {
 
       {/* Fullscreen Modal */}
       <div 
-        className={`fixed inset-0 bg-[#05060f]/95 backdrop-blur-md z-[2000] flex items-center justify-center transition-opacity duration-400 pointer-events-none ${modalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0'}`}
+        className={`fixed inset-0 bg-[#000000]/95 backdrop-blur-md z-[2000] flex items-center justify-center transition-opacity duration-400 pointer-events-none ${modalOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0'}`}
         onClick={(e) => {
           if (e.target === e.currentTarget) closeModal();
         }}

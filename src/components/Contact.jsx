@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
+import Squares from './Squares';
 
 export default function Contact() {
   const [btnState, setBtnState] = useState('idle');
@@ -15,9 +16,18 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 relative">
-      <div className="container mx-auto px-8 max-w-[1200px]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 items-center">
+    <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Squares 
+          direction="diagonal"
+          speed={0.5}
+          squareSize={40}
+          borderColor="#00b474"
+          hoverFillColor="#00e5cc"
+        />
+      </div>
+      <div className="container mx-auto px-8 max-w-[1200px] relative z-10 pointer-events-none">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 items-center pointer-events-auto">
           <div data-aos="fade-right" data-aos-duration="1000">
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] mb-6 tracking-tight">
               Let's build something <br />
@@ -31,7 +41,7 @@ export default function Contact() {
                 <a 
                   key={idx} 
                   href="#" 
-                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-[var(--color-brand-glow)] hover:text-[#05060f] hover:shadow-[0_0_20px_var(--color-brand-glow)] hover:-translate-y-[5px]"
+                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-[var(--color-brand-glow)] hover:text-[#000000] hover:shadow-[0_0_20px_var(--color-brand-glow)] hover:-translate-y-[5px]"
                   data-aos="zoom-in" 
                   data-aos-delay={300 + idx * 100}
                 >
