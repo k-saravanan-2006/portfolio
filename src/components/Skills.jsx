@@ -1,89 +1,77 @@
 import React from 'react';
-import GlassIcons from './GlassIcons';
-import { Brain, Translate, Robot, FlowArrow, ChartBar } from '@phosphor-icons/react';
+import DomeGallery from './DomeGallery';
+import Particles from './Particles';
 
 export default function Skills() {
-  const CatIcon = ({ src }) => (
-    <img src={src} className="w-[2.2em] h-[2.2em] object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" alt="skill icon" />
-  );
-
-  const programming = [
-    { label: 'C', color: 'indigo', icon: <CatIcon src="/image/py/C.svg" /> },
-    { label: 'Python', color: 'blue', icon: <CatIcon src="/image/py/Python.svg" /> },
-    { label: 'JavaScript', color: 'yellow', icon: <CatIcon src="/image/extras/JavaScript.svg" /> },
+  const images = [
+    { src: '/image/extras/Bootstrap.svg', alt: 'Bootstrap', title: 'Bootstrap', description: 'Responsive CSS framework.' },
+    { src: '/image/extras/JavaScript.svg', alt: 'JavaScript', title: 'JavaScript', description: 'Core web interactivity.' },
+    { src: '/image/extras/Seaborn.svg', alt: 'Seaborn', title: 'Seaborn', description: 'Statistical data visualization.' },
+    { src: '/image/extras/Streamlit.svg', alt: 'Streamlit', title: 'Streamlit', description: 'Rapidly build data apps in Python.' },
+    { src: '/image/plt/Docker.svg', alt: 'Docker', title: 'Docker', description: 'Containerize and distribute software.' },
+    { src: '/image/plt/Git.svg', alt: 'Git', title: 'Git', description: 'Version control system.' },
+    { src: '/image/plt/GitHub.svg', alt: 'GitHub', title: 'GitHub', description: 'Cloud repository hosting.' },
+    { src: '/image/plt/Jupyter.svg', alt: 'Jupyter', title: 'Jupyter', description: 'Interactive Python notebooks.' },
+    { src: '/image/plt/Visual Studio Code (VS Code).svg', alt: 'VS Code', title: 'VS Code', description: 'Versatile code editor.' },
+    { src: '/image/py/C.svg', alt: 'C', title: 'C', description: 'Fundamental programming language.' },
+    { src: '/image/py/Flask.svg', alt: 'Flask', title: 'Flask', description: 'Lightweight Python web framework.' },
+    { src: '/image/py/Java.svg', alt: 'Java', title: 'Java', description: 'Object-oriented application language.' },
+    { src: '/image/py/Matplotlib.svg', alt: 'Matplotlib', title: 'Matplotlib', description: 'Create static, animated, and interactive python charts.' },
+    { src: '/image/py/NumPy.svg', alt: 'NumPy', title: 'NumPy', description: 'Numerical computing with Python arrays.' },
+    { src: '/image/py/OpenCV.svg', alt: 'OpenCV', title: 'OpenCV', description: 'Real-time computer vision.' },
+    { src: '/image/py/PyTorch.svg', alt: 'PyTorch', title: 'PyTorch', description: 'Deep learning research framework.' },
+    { src: '/image/py/Python.svg', alt: 'Python', title: 'Python', description: 'Versatile general-purpose programming.' },
+    { src: '/image/py/langchain-icon-seeklogo.svg', alt: 'LangChain', title: 'LangChain', description: 'Building applications with LLMs.' },
+    { src: '/image/web/CSS3.svg', alt: 'CSS3', title: 'CSS3', description: 'Styling the modern web.' },
+    { src: '/image/web/FastAPI.svg', alt: 'FastAPI', title: 'FastAPI', description: 'High-performance Python APIs.' },
+    { src: '/image/web/Flutter.svg', alt: 'Flutter', title: 'Flutter', description: 'Cross-platform mobile UI framework.' },
+    { src: '/image/web/HTML5.svg', alt: 'HTML5', title: 'HTML5', description: 'Structure of the World Wide Web.' },
+    { src: '/image/web/MongoDB.svg', alt: 'MongoDB', title: 'MongoDB', description: 'NoSQL document database.' },
+    { src: '/image/web/MySQL.svg', alt: 'MySQL', title: 'MySQL', description: 'Relational database management.' },
+    { src: '/image/web/Node.js.svg', alt: 'Node.js', title: 'Node.js', description: 'JavaScript runtime for the backend.' },
+    { src: '/image/web/React.svg', alt: 'React', title: 'React', description: 'Building user interfaces.' },
+    { src: '/image/web/Tailwind CSS.svg', alt: 'Tailwind CSS', title: 'Tailwind CSS', description: 'Utility-first CSS styling.' }
   ];
-
-  const ml = [
-    { label: 'PyTorch', color: 'red', icon: <CatIcon src="/image/py/PyTorch.svg" /> },
-    { label: 'NumPy', color: 'blue', icon: <CatIcon src="/image/py/NumPy.svg" /> },
-    { label: 'Matplotlib', color: 'green', icon: <CatIcon src="/image/py/Matplotlib.svg" /> },
-    { label: 'Seaborn', color: 'cyan', icon: <CatIcon src="/image/extras/Seaborn.svg" /> },
-    { label: 'OpenCV', color: 'red', icon: <CatIcon src="/image/py/OpenCV.svg" /> },
-  ];
-
-  const genAI = [
-    { label: 'NLP', color: 'purple', icon: <Brain size={36} weight="duotone" color="#fff" /> },
-    { label: 'LangChain', color: 'green', icon: <CatIcon src="/image/py/langchain-icon-seeklogo.svg" /> },
-    { label: 'LangGraph', color: 'teal', icon: <FlowArrow size={36} weight="duotone" color="#fff" /> },
-    { label: 'Streamlit', color: 'red', icon: <CatIcon src="/image/extras/Streamlit.svg" /> },
-  ];
-
-  const webDev = [
-    { label: 'HTML', color: 'orange', icon: <CatIcon src="/image/web/HTML5.svg" /> },
-    { label: 'CSS', color: 'blue', icon: <CatIcon src="/image/web/CSS3.svg" /> },
-    { label: 'JavaScript', color: 'yellow', icon: <CatIcon src="/image/extras/JavaScript.svg" /> },
-    { label: 'React.js', color: 'cyan', icon: <CatIcon src="/image/web/React.svg" /> },
-    { label: 'Node.js', color: 'green', icon: <CatIcon src="/image/web/Node.js.svg" /> },
-    { label: 'Flask', color: 'purple', icon: <CatIcon src="/image/py/Flask.svg" /> },
-    { label: 'FastAPI', color: 'teal', icon: <CatIcon src="/image/web/FastAPI.svg" /> },
-    { label: 'MongoDB', color: 'green', icon: <CatIcon src="/image/web/MongoDB.svg" /> },
-    { label: 'MySQL', color: 'blue', icon: <CatIcon src="/image/web/MySQL.svg" /> },
-    { label: 'Tailwind', color: 'cyan', icon: <CatIcon src="/image/web/Tailwind CSS.svg" /> },
-    { label: 'Bootstrap', color: 'purple', icon: <CatIcon src="/image/extras/Bootstrap.svg" /> },
-  ];
-
-  const appDev = [
-    { label: 'Flutter', color: 'cyan', icon: <CatIcon src="/image/web/Flutter.svg" /> },
-  ];
-
-  const tools = [
-    { label: 'Git', color: 'orange', icon: <CatIcon src="/image/plt/Git.svg" /> },
-    { label: 'GitHub', color: 'purple', icon: <CatIcon src="/image/plt/GitHub.svg" /> },
-    { label: 'Jupyter', color: 'orange', icon: <CatIcon src="/image/plt/Jupyter.svg" /> },
-    { label: 'Docker', color: 'blue', icon: <CatIcon src="/image/plt/Docker.svg" /> },
-    { label: 'VS Code', color: 'blue', icon: <CatIcon src="/image/plt/Visual Studio Code (VS Code).svg" /> },
-  ];
-
-  const languages = [
-    { label: 'English', color: 'blue', icon: <Translate size={36} weight="duotone" color="#fff" /> },
-    { label: 'Tamil', color: 'orange', icon: <Translate size={36} weight="duotone" color="#fff" /> },
-  ];
-
-  const renderSection = (title, items) => (
-    <div className="flex flex-col items-center w-full my-12" data-aos="fade-up">
-      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--color-brand-glow)] uppercase tracking-widest">{title}</h3>
-      <GlassIcons items={items} />
-    </div>
-  );
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden flex flex-col items-center">
-      <div className="container mx-auto px-8 max-w-[1200px] text-center w-full">
+      <div className="container mx-auto px-8 max-w-[1200px] text-center w-full z-10 mb-8">
         <h2
-          className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-8 tracking-tight"
+          className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold tracking-tight"
           data-aos="fade-up"
         >
           My <span className="text-[var(--color-brand-glow)]">Expertise.</span>
         </h2>
+      </div>
 
-        <div className="flex flex-col w-full mt-8 overflow-visible">
-          {renderSection("Programming", programming)}
-          {renderSection("Machine Learning / Deep Learning", ml)}
-          {renderSection("Generative AI", genAI)}
-          {renderSection("Web Development", webDev)}
-          {renderSection("App Development", appDev)}
-          {renderSection("Tools", tools)}
-          {renderSection("Languages", languages)}
+      <div className="relative w-full min-h-[100vh] h-[800px] mx-auto z-0 overflow-hidden drop-shadow-2xl bg-black flex flex-col items-center justify-center p-8" data-aos="fade-up" data-aos-delay="200">
+        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
+          <Particles
+            particleColors={["#00b4a6", "#00e5cc", "#ffffff"]}
+            particleCount={300}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={80}
+            moveParticlesOnHover={true}
+            alphaParticles={true}
+            disableRotation={false}
+            pixelRatio={Math.min(window.devicePixelRatio || 1, 2)}
+          />
+        </div>
+        <div className="relative z-10 w-full h-[60vh] max-h-[800px] flex items-center justify-center">
+          <DomeGallery
+            images={images}
+            fit={0.4}
+            minRadius={180}
+            maxRadius={450}
+            maxVerticalRotationDeg={25}
+            segments={30}
+            dragDampening={1.5}
+            grayscale={false}
+            imageBorderRadius="50%"
+            openedImageWidth="200px"
+            openedImageHeight="200px"
+          />
         </div>
       </div>
     </section>

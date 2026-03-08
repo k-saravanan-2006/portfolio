@@ -11,8 +11,8 @@ const AnimatedContactButton = ({ btnState }) => {
       {Array.from({ length: 15 }).map((_, i) => (
         <div key={i} className="area"></div>
       ))}
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         className="button pointer-events-auto"
         disabled={isSent || isSending}
       >

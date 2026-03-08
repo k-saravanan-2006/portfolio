@@ -36,13 +36,13 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-8 max-w-[1200px]">
-        <h2 
+        <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
           data-aos="fade-up"
         >
           Featured <span className="text-[var(--color-brand-glow)]">Projects.</span>
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, idx) => (
             <HoverProjectCard key={idx} project={project} idx={idx} />

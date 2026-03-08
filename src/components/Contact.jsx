@@ -43,7 +43,7 @@ export default function Contact() {
                 <a
                   key={idx}
                   href="#"
-                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-[var(--color-brand-glow)] hover:text-[#000000] hover:shadow-[0_0_20px_var(--color-brand-glow)] hover:-translate-y-[5px]"
+                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.8)] hover:-translate-y-[5px]"
                   data-aos="zoom-in"
                   data-aos-delay={300 + idx * 100}
                 >
