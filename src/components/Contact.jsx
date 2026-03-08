@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
 import Squares from './Squares';
+import AnimatedInput from './AnimatedInput';
+import AnimatedContactButton from './AnimatedContactButton';
 
 export default function Contact() {
   const [btnState, setBtnState] = useState('idle');
@@ -18,7 +20,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Squares 
+        <Squares
           direction="diagonal"
           speed={0.5}
           squareSize={40}
@@ -38,11 +40,11 @@ export default function Contact() {
             </p>
             <div className="flex gap-6 mt-8">
               {[GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple].map((Icon, idx) => (
-                <a 
-                  key={idx} 
-                  href="#" 
+                <a
+                  key={idx}
+                  href="#"
                   className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl transition-all duration-300 hover:bg-[var(--color-brand-glow)] hover:text-[#000000] hover:shadow-[0_0_20px_var(--color-brand-glow)] hover:-translate-y-[5px]"
-                  data-aos="zoom-in" 
+                  data-aos="zoom-in"
                   data-aos-delay={300 + idx * 100}
                 >
                   <Icon weight="fill" />
@@ -50,47 +52,36 @@ export default function Contact() {
               ))}
             </div>
           </div>
-          <div 
+          <div
             className="bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl p-12 backdrop-blur-[15px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-            data-aos="fade-left" 
-            data-aos-duration="1000" 
+            data-aos="fade-left"
+            data-aos-duration="1000"
             data-aos-delay="200"
           >
             <form onSubmit={handleSubmit}>
               <div className="mb-6" data-aos="fade-up" data-aos-delay="400">
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="Your Name" 
-                  className="w-full p-4 bg-black/20 border border-[var(--glass-border)] rounded-xl text-white font-inherit text-base outline-none transition-all duration-300 focus:border-[var(--color-brand-glow)] focus:bg-[rgba(216,236,248,0.05)] focus:shadow-[0_0_15px_rgba(216,236,248,0.1)]"
+                <AnimatedInput
+                  type="text"
+                  required
+                  placeholder="Your Name"
                 />
               </div>
               <div className="mb-6" data-aos="fade-up" data-aos-delay="500">
-                <input 
-                  type="email" 
-                  required 
-                  placeholder="Your Email" 
-                  className="w-full p-4 bg-black/20 border border-[var(--glass-border)] rounded-xl text-white font-inherit text-base outline-none transition-all duration-300 focus:border-[var(--color-brand-glow)] focus:bg-[rgba(216,236,248,0.05)] focus:shadow-[0_0_15px_rgba(216,236,248,0.1)]"
+                <AnimatedInput
+                  type="email"
+                  required
+                  placeholder="Your Email"
                 />
               </div>
               <div className="mb-6" data-aos="fade-up" data-aos-delay="600">
-                <textarea 
-                  rows="4" 
-                  required 
-                  placeholder="Your Message" 
-                  className="w-full p-4 bg-black/20 border border-[var(--glass-border)] rounded-xl text-white font-inherit text-base outline-none transition-all duration-300 focus:border-[var(--color-brand-glow)] focus:bg-[rgba(216,236,248,0.05)] focus:shadow-[0_0_15px_rgba(216,236,248,0.1)] resize-y"
-                ></textarea>
+                <AnimatedInput
+                  as="textarea"
+                  rows="4"
+                  required
+                  placeholder="Your Message"
+                />
               </div>
-              <button 
-                type="submit" 
-                className={`glow-btn w-full transition-transform duration-200 ${btnState === 'sending' ? 'scale-95' : btnState === 'sent' ? 'scale-105 shadow-[0_0_40px_var(--color-brand-glow)] !bg-[#4BB543] !text-white' : ''}`}
-                data-aos="fade-up" 
-                data-aos-delay="700"
-              >
-                {btnState === 'idle' && 'Send Message'}
-                {btnState === 'sending' && 'Sending...'}
-                {btnState === 'sent' && 'Message Sent!'}
-              </button>
+              <AnimatedContactButton btnState={btnState} />
             </form>
           </div>
         </div>
