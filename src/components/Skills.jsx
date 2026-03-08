@@ -1,65 +1,89 @@
 import React from 'react';
-import { Monitor, HardDrives, Palette, Wrench } from '@phosphor-icons/react';
+import GlassIcons from './GlassIcons';
+import { Brain, Translate, Robot, FlowArrow, ChartBar } from '@phosphor-icons/react';
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: Monitor,
-      skills: ['React', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5', 'CSS3', 'Framer Motion']
-    },
-    {
-      title: 'Backend & ML',
-      icon: HardDrives,
-      skills: ['Python', 'Node.js', 'Express', 'Flask', 'OpenCV', 'RESTful APIs']
-    },
-    {
-      title: 'Creative',
-      icon: Palette,
-      skills: ['Spline 3D', 'UI/UX Design', 'Figma', 'Responsive Layouts']
-    },
-    {
-      title: 'Tools & DevOps',
-      icon: Wrench,
-      skills: ['Git', 'GitHub', 'AWS', 'Vite', 'Postman']
-    }
+  const CatIcon = ({ src }) => (
+    <img src={src} className="w-[2.2em] h-[2.2em] object-contain filter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" alt="skill icon" />
+  );
+
+  const programming = [
+    { label: 'C', color: 'indigo', icon: <CatIcon src="/image/py/C.svg" /> },
+    { label: 'Python', color: 'blue', icon: <CatIcon src="/image/py/Python.svg" /> },
+    { label: 'JavaScript', color: 'yellow', icon: <CatIcon src="/image/extras/JavaScript.svg" /> },
   ];
 
+  const ml = [
+    { label: 'PyTorch', color: 'red', icon: <CatIcon src="/image/py/PyTorch.svg" /> },
+    { label: 'NumPy', color: 'blue', icon: <CatIcon src="/image/py/NumPy.svg" /> },
+    { label: 'Matplotlib', color: 'green', icon: <CatIcon src="/image/py/Matplotlib.svg" /> },
+    { label: 'Seaborn', color: 'cyan', icon: <CatIcon src="/image/extras/Seaborn.svg" /> },
+    { label: 'OpenCV', color: 'red', icon: <CatIcon src="/image/py/OpenCV.svg" /> },
+  ];
+
+  const genAI = [
+    { label: 'NLP', color: 'purple', icon: <Brain size={36} weight="duotone" color="#fff" /> },
+    { label: 'LangChain', color: 'green', icon: <CatIcon src="/image/py/langchain-icon-seeklogo.svg" /> },
+    { label: 'LangGraph', color: 'teal', icon: <FlowArrow size={36} weight="duotone" color="#fff" /> },
+    { label: 'Streamlit', color: 'red', icon: <CatIcon src="/image/extras/Streamlit.svg" /> },
+  ];
+
+  const webDev = [
+    { label: 'HTML', color: 'orange', icon: <CatIcon src="/image/web/HTML5.svg" /> },
+    { label: 'CSS', color: 'blue', icon: <CatIcon src="/image/web/CSS3.svg" /> },
+    { label: 'JavaScript', color: 'yellow', icon: <CatIcon src="/image/extras/JavaScript.svg" /> },
+    { label: 'React.js', color: 'cyan', icon: <CatIcon src="/image/web/React.svg" /> },
+    { label: 'Node.js', color: 'green', icon: <CatIcon src="/image/web/Node.js.svg" /> },
+    { label: 'Flask', color: 'purple', icon: <CatIcon src="/image/py/Flask.svg" /> },
+    { label: 'FastAPI', color: 'teal', icon: <CatIcon src="/image/web/FastAPI.svg" /> },
+    { label: 'MongoDB', color: 'green', icon: <CatIcon src="/image/web/MongoDB.svg" /> },
+    { label: 'MySQL', color: 'blue', icon: <CatIcon src="/image/web/MySQL.svg" /> },
+    { label: 'Tailwind', color: 'cyan', icon: <CatIcon src="/image/web/Tailwind CSS.svg" /> },
+    { label: 'Bootstrap', color: 'purple', icon: <CatIcon src="/image/extras/Bootstrap.svg" /> },
+  ];
+
+  const appDev = [
+    { label: 'Flutter', color: 'cyan', icon: <CatIcon src="/image/web/Flutter.svg" /> },
+  ];
+
+  const tools = [
+    { label: 'Git', color: 'orange', icon: <CatIcon src="/image/plt/Git.svg" /> },
+    { label: 'GitHub', color: 'purple', icon: <CatIcon src="/image/plt/GitHub.svg" /> },
+    { label: 'Jupyter', color: 'orange', icon: <CatIcon src="/image/plt/Jupyter.svg" /> },
+    { label: 'Docker', color: 'blue', icon: <CatIcon src="/image/plt/Docker.svg" /> },
+    { label: 'VS Code', color: 'blue', icon: <CatIcon src="/image/plt/Visual Studio Code (VS Code).svg" /> },
+  ];
+
+  const languages = [
+    { label: 'English', color: 'blue', icon: <Translate size={36} weight="duotone" color="#fff" /> },
+    { label: 'Tamil', color: 'orange', icon: <Translate size={36} weight="duotone" color="#fff" /> },
+  ];
+
+  const renderSection = (title, items) => (
+    <div className="flex flex-col items-center w-full my-12" data-aos="fade-up">
+      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--color-brand-glow)] uppercase tracking-widest">{title}</h3>
+      <GlassIcons items={items} />
+    </div>
+  );
+
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-8 max-w-[1200px]">
+    <section id="skills" className="py-24 relative overflow-hidden flex flex-col items-center">
+      <div className="container mx-auto px-8 max-w-[1200px] text-center w-full">
         <h2
-          className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
+          className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-8 tracking-tight"
           data-aos="fade-up"
         >
           My <span className="text-[var(--color-brand-glow)]">Expertise.</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((cat, idx) => {
-            const Icon = cat.icon;
-            return (
-              <div
-                key={idx}
-                className="group flex flex-col p-8 rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-2 hover:border-[rgba(216,236,248,0.3)] hover:shadow-[0_10px_30px_rgba(216,236,248,0.1)]"
-                data-aos="fade-up"
-                data-aos-delay={idx * 100}
-              >
-                <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-[rgba(216,236,248,0.05)] border border-[rgba(216,236,248,0.1)] text-[var(--color-brand-glow)] mb-6 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(216,236,248,0.05)]">
-                  <Icon size={30} weight="duotone" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-6">{cat.title}</h3>
-                <ul className="flex flex-col gap-3 m-0 p-0 list-none text-[var(--text-secondary)]">
-                  {cat.skills.map((skill, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-glow)] opacity-50 block"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+        <div className="flex flex-col w-full mt-8 overflow-visible">
+          {renderSection("Programming", programming)}
+          {renderSection("Machine Learning / Deep Learning", ml)}
+          {renderSection("Generative AI", genAI)}
+          {renderSection("Web Development", webDev)}
+          {renderSection("App Development", appDev)}
+          {renderSection("Tools", tools)}
+          {renderSection("Languages", languages)}
         </div>
       </div>
     </section>
