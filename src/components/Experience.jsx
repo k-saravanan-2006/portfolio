@@ -29,7 +29,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-black">
+    <section id="experience" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
       {/* Background Interactive 3D Particles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Antigravity
@@ -50,19 +50,19 @@ export default function Experience() {
           fieldStrength={10}
         />
       </div>
-      
-      <div className="container mx-auto px-8 max-w-[1000px] relative z-10">
-        <h2 
+
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10">
+        <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-16 tracking-tight"
           data-aos="fade-right"
         >
           My <span className="text-[var(--color-brand-glow)]">Experience.</span>
         </h2>
-        
+
         <div className="relative border-l border-[rgba(216,236,248,0.2)] ml-4 md:ml-0">
           {experiences.map((exp, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="mb-16 pl-10 relative"
               data-aos="fade-up"
               data-aos-delay={idx * 150}
@@ -80,9 +80,9 @@ export default function Experience() {
                     {exp.duration}
                   </div>
                 </div>
-                
+
                 <h4 className="text-lg text-gray-400 font-medium mb-6">{exp.company}</h4>
-                
+
                 <ul className="list-disc list-inside text-[var(--text-secondary)] mb-8 space-y-2">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
@@ -91,8 +91,8 @@ export default function Experience() {
 
                 <div className="flex flex-wrap gap-3">
                   {exp.stack.map((tech, i) => (
-                    <span 
-                      key={i} 
+                    <span
+                      key={i}
                       className="text-xs font-semibold px-4 py-1.5 rounded-full bg-black/40 border border-gray-700 text-gray-300"
                     >
                       {tech}

@@ -10,8 +10,6 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import About from './components/About';
 import Contact from './components/Contact';
-import Ticker from './components/Ticker';
-import Footer from './components/Footer';
 import ClickSpark from './components/ClickSpark';
 import SpotlightCursor from './components/SpotlightCursor';
 
@@ -43,8 +41,6 @@ function App() {
         <About />
         <Contact />
       </main>
-      <Ticker />
-      <Footer />
       <SpotlightCursor />
     </ClickSpark>
   );

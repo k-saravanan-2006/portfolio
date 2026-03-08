@@ -3,6 +3,8 @@ import { GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor
 import Squares from './Squares';
 import AnimatedInput from './AnimatedInput';
 import AnimatedContactButton from './AnimatedContactButton';
+import Ticker from './Ticker';
+import Footer from './Footer';
 
 export default function Contact() {
   const [btnState, setBtnState] = useState('idle');
@@ -18,7 +20,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-[5px] relative overflow-hidden">
+    <section id="contact" className="min-h-screen w-full relative overflow-hidden bg-black flex flex-col pt-20">
       <div className="absolute inset-0 z-0">
         <Squares
           direction="diagonal"
@@ -28,7 +30,7 @@ export default function Contact() {
           hoverFillColor="#00e5cc"
         />
       </div>
-      <div className="container mx-auto px-0 max-w-[1200px] relative z-10 pointer-events-none">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10 pointer-events-none flex-1 flex flex-col justify-center pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 items-center pointer-events-auto">
           <div data-aos="fade-right" data-aos-duration="1000">
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] mb-6 tracking-tight">
@@ -85,6 +87,11 @@ export default function Contact() {
             </form>
           </div>
         </div>
+      </div>
+
+      <div className="w-full relative z-10 pointer-events-auto mt-auto">
+        <Ticker />
+        <Footer />
       </div>
     </section>
   );

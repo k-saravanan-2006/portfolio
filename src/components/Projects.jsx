@@ -1,5 +1,6 @@
 import React from 'react';
 import HoverProjectCard from './HoverProjectCard';
+import FloatingLines from './FloatingLines';
 
 export default function Projects() {
   const projects = [
@@ -34,8 +35,19 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-[5px] relative overflow-hidden">
-      <div className="container mx-auto px-0 max-w-[1200px]">
+    <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
+      <div className="absolute inset-0 z-0 opacity-40">
+        <FloatingLines 
+          enabledWaves={["bottom","middle"]}
+          lineCount={2}
+          lineDistance={4.0}
+          bendRadius={4.5}
+          bendStrength={5.5}
+          interactive={true}
+          parallax={true}
+        />
+      </div>
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10">
         <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
           data-aos="fade-up"

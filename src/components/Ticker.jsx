@@ -16,7 +16,7 @@ export default function Ticker() {
   const tickerItems = [...links, ...links, ...links];
 
   return (
-    <div className="w-full bg-[#111] border-y border-[#222] overflow-hidden py-4 flex mt-3">
+    <div className="w-full bg-[#111] border-y border-[#222] overflow-hidden py-3 flex mt-3">
       <div className="flex animate-[ticker_40s_linear_infinite] w-max hover:[animation-play-state:paused]">
         {tickerItems.map((item, idx) => {
           const Icon = item.icon;
