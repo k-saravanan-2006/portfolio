@@ -12,6 +12,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import ClickSpark from './components/ClickSpark';
 import SpotlightCursor from './components/SpotlightCursor';
+import SectionStack from './components/SectionStack';
 
 function App() {
   useEffect(() => {
@@ -33,13 +34,15 @@ function App() {
       <div className="light-spots"></div>
       <Header />
       <main>
-        <Hero />
-        <CodingProfiles />
-        <Experience />
-        <Projects />
-        <Skills />
-        <About />
-        <Contact />
+        <SectionStack>
+          <Hero />
+          <CodingProfiles />
+          <Experience />
+          <Projects />
+          <Skills />
+          <About />
+          <Contact />
+        </SectionStack>
       </main>
       <SpotlightCursor />
     </ClickSpark>
