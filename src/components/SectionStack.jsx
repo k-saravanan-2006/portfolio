@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const SectionStack = ({ children }) => {
   const containerRef = useRef(null);
@@ -11,24 +12,38 @@ const SectionStack = ({ children }) => {
     const sections = gsap.utils.toArray('.stack-section');
     if (sections.length === 0) return;
 
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % sections.length;
-      const targetSection = sections[currentIndex];
-      
-      // Calculate the scroll position for the target section
-      // Each section is pinned, so they are effectively at their own 'top' in the flow
-      // but ScrollTrigger calculates their positions based on the spacer height.
-      // However, for this specific pinned 'stack' layout, we can use the index to determine the scroll offset.
-      const scrollPos = currentIndex * window.innerHeight;
-      
-      window.scrollTo({
-        top: scrollPos,
-        behavior: 'smooth'
-      });
-    }, 2000);
+    let currentIndex = Math.round(window.scrollY / window.innerHeight);
+    let lastActivityTime = Date.now();
 
-    return () => clearInterval(interval);
+    const updateActivity = () => {
+      lastActivityTime = Date.now();
+      currentIndex = Math.round(window.scrollY / window.innerHeight);
+    };
+
+    const activityEvents = ['mousemove', 'keydown', 'scroll', 'mousedown'];
+    activityEvents.forEach(event => window.addEventListener(event, updateActivity));
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      if (now - lastActivityTime >= 5000) {
+        currentIndex = (currentIndex + 1) % sections.length;
+        const scrollPos = currentIndex * window.innerHeight;
+        
+        gsap.to(window, {
+          scrollTo: scrollPos,
+          duration: 2, // Slower duration for a premium feel
+          ease: "power2.inOut",
+          onComplete: () => {
+            lastActivityTime = Date.now(); // Reset activity after animation
+          }
+        });
+      }
+    }, 5000);
+
+    return () => {
+      activityEvents.forEach(event => window.removeEventListener(event, updateActivity));
+      clearInterval(interval);
+    };
   }, [children]);
 
   useEffect(() => {
