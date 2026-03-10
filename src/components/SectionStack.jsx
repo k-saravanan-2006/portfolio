@@ -8,43 +8,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const SectionStack = ({ children }) => {
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    const sections = gsap.utils.toArray('.stack-section');
-    if (sections.length === 0) return;
-
-    let currentIndex = Math.round(window.scrollY / window.innerHeight);
-    let lastActivityTime = Date.now();
-
-    const updateActivity = () => {
-      lastActivityTime = Date.now();
-      currentIndex = Math.round(window.scrollY / window.innerHeight);
-    };
-
-    const activityEvents = ['mousemove', 'keydown', 'scroll', 'mousedown'];
-    activityEvents.forEach(event => window.addEventListener(event, updateActivity));
-
-    const interval = setInterval(() => {
-      const now = Date.now();
-      if (now - lastActivityTime >= 5000) {
-        currentIndex = (currentIndex + 1) % sections.length;
-        const scrollPos = currentIndex * window.innerHeight;
-        
-        gsap.to(window, {
-          scrollTo: scrollPos,
-          duration: 2, // Slower duration for a premium feel
-          ease: "power2.inOut",
-          onComplete: () => {
-            lastActivityTime = Date.now(); // Reset activity after animation
-          }
-        });
-      }
-    }, 5000);
-
-    return () => {
-      activityEvents.forEach(event => window.removeEventListener(event, updateActivity));
-      clearInterval(interval);
-    };
-  }, [children]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

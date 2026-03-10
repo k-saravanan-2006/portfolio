@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +26,35 @@ export default function Header() {
     { title: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+
+    if (targetId === 'home') {
+      gsap.to(window, {
+        scrollTo: 0,
+        duration: 1.2,
+        ease: "power4.inOut",
+        overwrite: true
+      });
+      return;
+    }
+
+    const sections = gsap.utils.toArray('.stack-section');
+    const targetIndex = sections.findIndex(section =>
+      section.querySelector(`#${targetId}`) || section.id === targetId
+    );
+
+    if (targetIndex !== -1) {
+      gsap.to(window, {
+        scrollTo: { y: targetIndex * window.innerHeight, autoKill: false },
+        duration: 1.5,
+        ease: "expo.inOut",
+        overwrite: true
+      });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out backdrop-blur-md ${scrolled
@@ -38,6 +72,7 @@ export default function Header() {
               <li key={item.title}>
                 <a
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="relative inline-block text-[14px] font-semibold tracking-wide transition-all duration-300 pb-2 text-white no-underline hover-text-glow hover:scale-110 hover:-translate-y-0.5"
                   style={{ textDecoration: 'none' }}
                 >
