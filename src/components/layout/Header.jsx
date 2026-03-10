@@ -46,8 +46,9 @@ export default function Header() {
     );
 
     if (targetIndex !== -1) {
+      const targetSection = sections[targetIndex];
       gsap.to(window, {
-        scrollTo: { y: targetIndex * window.innerHeight, autoKill: false },
+        scrollTo: { y: targetSection.offsetTop, autoKill: false },
         duration: 1.5,
         ease: "expo.inOut",
         overwrite: true

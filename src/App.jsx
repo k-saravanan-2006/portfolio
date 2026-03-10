@@ -2,17 +2,17 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Header from './components/Header';
-import Hero from './components/Hero';
-import CodingProfiles from './components/CodingProfiles';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import About from './components/About';
-import Contact from './components/Contact';
-import ClickSpark from './components/ClickSpark';
-import SpotlightCursor from './components/SpotlightCursor';
-import SectionStack from './components/SectionStack';
+import Header from './components/layout/Header';
+import Hero from './components/sections/Hero';
+import CodingProfiles from './components/sections/CodingProfiles';
+import Experience from './components/sections/Experience';
+import Projects from './components/sections/Projects';
+import Skills from './components/sections/Skills';
+import About from './components/sections/About';
+import Contact from './components/sections/Contact';
+import ClickSpark from './components/ui/ClickSpark';
+import SpotlightCursor from './components/ui/SpotlightCursor';
+import SectionStack from './components/layout/SectionStack';
 
 function App() {
   useEffect(() => {

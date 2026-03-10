@@ -1,7 +1,7 @@
 import React from 'react';
-import ShinyText from './ShinyText';
-import DecryptedText from './DecryptedText';
-import LightRays from './LightRays';
+import ShinyText from '../ui/ShinyText';
+import DecryptedText from '../ui/DecryptedText';
+import LightRays from '../ui/LightRays';
 
 export default function Hero() {
   return (

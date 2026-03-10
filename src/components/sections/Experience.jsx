@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, CalendarBlank } from '@phosphor-icons/react';
-import Antigravity from './Antigravity';
+import Antigravity from '../ui/Antigravity';
 
 export default function Experience() {
   const experiences = [

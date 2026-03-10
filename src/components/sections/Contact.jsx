@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
-import Squares from './Squares';
-import AnimatedInput from './AnimatedInput';
-import AnimatedContactButton from './AnimatedContactButton';
-import Ticker from './Ticker';
-import Footer from './Footer';
+import Squares from '../ui/Squares';
+import AnimatedInput from '../ui/AnimatedInput';
+import AnimatedContactButton from '../ui/AnimatedContactButton';
+import Ticker from '../layout/Ticker';
+import Footer from '../layout/Footer';
 
 export default function Contact() {
   const [btnState, setBtnState] = useState('idle');

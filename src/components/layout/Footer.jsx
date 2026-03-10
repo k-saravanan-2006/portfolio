@@ -1,5 +1,5 @@
 import React from 'react';
-import ShinyText from './ShinyText';
+import ShinyText from '../ui/ShinyText';
 
 export default function Footer() {
   return (

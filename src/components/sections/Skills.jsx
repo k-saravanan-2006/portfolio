@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import Orb from './Orb';
+import Orb from '../ui/Orb';
 
 const SKILL_GROUPS = [
   {

@@ -1,6 +1,6 @@
 import React from 'react';
-import HoverProjectCard from './HoverProjectCard';
-import FloatingLines from './FloatingLines';
+import HoverProjectCard from '../ui/HoverProjectCard';
+import FloatingLines from '../ui/FloatingLines';
 
 export default function Projects() {
   const projects = [

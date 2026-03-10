@@ -1,6 +1,6 @@
 import React from 'react';
-import ElectricBorder from './ElectricBorder';
-import PixelBlast from './PixelBlast';
+import ElectricBorder from '../ui/ElectricBorder';
+import PixelBlast from '../ui/PixelBlast';
 
 export default function About() {
   const stats = [

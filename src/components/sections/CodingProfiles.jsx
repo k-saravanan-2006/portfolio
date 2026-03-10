@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code, TerminalWindow, BracketsCurly } from '@phosphor-icons/react';
-import GridScan from './GridScan';
+import GridScan from '../ui/GridScan';
 
 export default function CodingProfiles() {
   const profiles = [
