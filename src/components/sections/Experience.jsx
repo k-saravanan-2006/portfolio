@@ -5,26 +5,11 @@ import Antigravity from '../ui/Antigravity';
 export default function Experience() {
   const experiences = [
     {
-      role: 'Software Engineering Intern',
-      company: 'Intel Unnati',
-      duration: 'May 2025 - Present',
-      description: [
-        'Developed intelligent automation systems and machine learning pipelines.',
-        'Collaborated with senior engineers to optimize stock prediction engines.',
-        'Improved real-time vision pipelines processing speed by 15%.'
-      ],
-      stack: ['Python', 'OpenCV', 'AWS']
-    },
-    {
-      role: 'Full Stack Developer Intern',
-      company: 'TechNova Solutions',
-      duration: 'Jan 2024 - April 2025',
-      description: [
-        'Built production-focused solutions including an AI-powered collaboration bot.',
-        'Engineered responsive frontends using React and modern CSS frameworks.',
-        'Integrated RESTful APIs bridging the gap between frontend and backend operations.'
-      ],
-      stack: ['React', 'Node.js', 'Express']
+      role: 'Coming Soon',
+      company: 'Future opportunity',
+      duration: 'Stay tuned',
+      description: [],
+      stack: []
     }
   ];
 
