@@ -9,14 +9,40 @@ import Footer from '../layout/Footer';
 export default function Contact() {
   const [btnState, setBtnState] = useState('idle');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setBtnState('sending');
-    setTimeout(() => {
-      setBtnState('sent');
-      e.target.reset();
-      setTimeout(() => setBtnState('idle'), 3000);
-    }, 1000);
+    
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/saravanankumar8285@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+          _subject: `Portfolio Contact from ${formData.get('name')}`,
+        })
+      });
+      
+      if (response.ok) {
+        setBtnState('sent');
+        e.target.reset();
+      } else {
+        setBtnState('idle');
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setBtnState('idle');
+      alert('Failed to send message. Please try again.');
+    }
+    
+    setTimeout(() => setBtnState('idle'), 3000);
   };
 
   return (
@@ -70,6 +96,7 @@ export default function Contact() {
               <div className="mb-6" data-aos="fade-up" data-aos-delay="400">
                 <AnimatedInput
                   type="text"
+                  name="name"
                   required
                   placeholder="Your Name"
                 />
@@ -77,6 +104,7 @@ export default function Contact() {
               <div className="mb-6" data-aos="fade-up" data-aos-delay="500">
                 <AnimatedInput
                   type="email"
+                  name="email"
                   required
                   placeholder="Your Email"
                 />
@@ -84,6 +112,7 @@ export default function Contact() {
               <div className="mb-6" data-aos="fade-up" data-aos-delay="600">
                 <AnimatedInput
                   as="textarea"
+                  name="message"
                   rows="4"
                   required
                   placeholder="Your Message"
