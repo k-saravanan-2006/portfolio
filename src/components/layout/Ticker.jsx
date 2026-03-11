@@ -3,12 +3,12 @@ import { GithubLogo, LinkedinLogo, EnvelopeSimple, Phone, Globe } from '@phospho
 
 export default function Ticker() {
   const links = [
-    { name: 'GitHub', icon: GithubLogo, url: '#' },
-    { name: 'LinkedIn', icon: LinkedinLogo, url: '#' },
-    { name: 'LeetCode', icon: Globe, url: '#' },
-    { name: 'CodeForces', icon: Globe, url: '#' },
+    { name: 'GitHub', icon: GithubLogo, url: 'https://github.com/k-saravanan-2006' },
+    { name: 'LinkedIn', icon: LinkedinLogo, url: 'https://www.linkedin.com/in/k-saravanan-14b03132a/' },
+    { name: 'LeetCode', icon: Globe, url: 'https://leetcode.com/u/K_SARAVANAN/' },
+    { name: 'SkillRack', icon: Globe, url: 'https://www.skillrack.com/faces/resume.xhtml?id=494274&key=c6656285d433d6f25b8b37f07312a1b086e8525f' },
     { name: 'CodeChef', icon: Globe, url: '#' },
-    { name: 'Email', icon: EnvelopeSimple, url: 'mailto:saravanan@example.com' },
+    { name: 'Email', icon: EnvelopeSimple, url: 'mailto:saravanankumar8285@gmail.com' },
     { name: 'Phone', icon: Phone, url: 'tel:+910000000000' },
   ];
 

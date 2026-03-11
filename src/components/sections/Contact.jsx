@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
+import { GithubLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
 import Squares from '../ui/Squares';
 import AnimatedInput from '../ui/AnimatedInput';
 import AnimatedContactButton from '../ui/AnimatedContactButton';
@@ -41,15 +41,21 @@ export default function Contact() {
               Available for freelance opportunities and exciting projects.
             </p>
             <div className="flex gap-6 mt-8">
-              {[GithubLogo, TwitterLogo, LinkedinLogo, EnvelopeSimple].map((Icon, idx) => (
+              {[
+                { Icon: GithubLogo, href: 'https://github.com/k-saravanan-2006' },
+                { Icon: LinkedinLogo, href: 'https://www.linkedin.com/in/k-saravanan-14b03132a/' },
+                { Icon: EnvelopeSimple, href: 'mailto:saravanankumar8285@gmail.com' },
+              ].map((item, idx) => (
                 <a
                   key={idx}
-                  href="#"
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl text-white transition-all duration-300 hover:bg-[rgb(0,180,166)] hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:-translate-y-[5px]"
                   data-aos="zoom-in"
                   data-aos-delay={300 + idx * 100}
                 >
-                  <Icon weight="fill" />
+                  <item.Icon weight="fill" />
                 </a>
               ))}
             </div>
