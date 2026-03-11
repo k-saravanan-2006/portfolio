@@ -35,7 +35,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
+    <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-28 pb-20">
       <div className="absolute inset-0 z-0 opacity-40">
         <FloatingLines 
           enabledWaves={["bottom","middle"]}
@@ -47,7 +47,7 @@ export default function Projects() {
           parallax={true}
         />
       </div>
-      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[960px] w-full relative z-10">
         <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
           data-aos="fade-up"
@@ -55,7 +55,7 @@ export default function Projects() {
           Featured <span className="text-[var(--color-brand-glow)]">Projects.</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
           {projects.map((project, idx) => (
             <HoverProjectCard key={idx} project={project} idx={idx} />
           ))}

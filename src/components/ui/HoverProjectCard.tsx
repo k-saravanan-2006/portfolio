@@ -17,7 +17,7 @@ interface HoverProjectCardProps {
 const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => {
   return (
     <div 
-      className="relative w-full h-[400px] transition-all duration-200 mx-auto"
+      className="relative w-full h-[340px] transition-all duration-200 mx-auto"
       style={{ perspective: '800px' }}
       data-aos="fade-up"
       data-aos-delay={idx * 100}
@@ -38,7 +38,7 @@ const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => 
         >
           {/* Card inner content wrapped in black bg */}
           <div className="absolute inset-[2px] rounded-[22px] bg-[#000000] z-0 overflow-hidden flex flex-col transition-all duration-300">
-            <div className="w-full h-[180px] overflow-hidden relative border-b border-[rgba(0,229,204,0.2)]">
+            <div className="w-full h-[150px] overflow-hidden relative border-b border-[rgba(0,229,204,0.2)]">
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
               <img 
                 src={project.image} 

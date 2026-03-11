@@ -149,7 +149,7 @@ function SkillRow({ group }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center py-20">
+    <section id="skills" className="min-h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center pt-28 pb-20">
       {/* Orb animated background */}
       <div className="absolute inset-0 z-0" style={{ opacity: 0.35, pointerEvents: 'none' }}>
         <Orb

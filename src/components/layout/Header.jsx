@@ -59,11 +59,11 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out backdrop-blur-md ${scrolled
-        ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-4 shadow-lg'
-        : 'bg-white/10 py-6 border-b border-white/10 shadow-sm'
+        ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-[19px] shadow-lg'
+        : 'bg-white/10 py-[19px] border-b border-white/10 shadow-sm'
         }`}
     >
-      <div className="container mx-auto px-12 flex justify-between items-center max-w-[1400px]">
+      <div className="container mx-auto px-10 flex justify-between items-center max-w-[1400px]">
         {/* Placeholder for Left Side / Logo (Empty or invisible for now to match screenshot flow) */}
         <div></div>
 
