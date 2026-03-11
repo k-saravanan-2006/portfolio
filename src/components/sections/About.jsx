@@ -4,9 +4,9 @@ import PixelBlast from '../ui/PixelBlast';
 
 export default function About() {
   const stats = [
-    { value: '500+', label: 'Problems Solved Across All Platforms' },
-    { value: '5+', label: 'Projects Completed' },
-    { value: '9.02', label: 'College CGPA' }
+    { value: '3000+', label: 'Problems Solved Across All Platforms' },
+    { value: '10+', label: 'Projects Completed' },
+    { value: '8.63', label: 'College CGPA' }
   ];
 
   return (
