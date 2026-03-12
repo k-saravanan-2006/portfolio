@@ -14,7 +14,7 @@ export default function About() {
       <div className="absolute inset-0 z-0 pointer-events-auto">
         {/* Top Fade Mask */}
         <div className="absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b from-black via-black/80 to-transparent z-[1] pointer-events-none" />
-        
+
         <PixelBlast
           variant="square"
           pixelSize={2}

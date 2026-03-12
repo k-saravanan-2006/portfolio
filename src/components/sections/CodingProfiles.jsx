@@ -10,9 +10,9 @@ const Icons = {
   ),
   CodeChef: () => (
     <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2C9.5 2 7.5 4 7.5 6.5C7.5 7.8 8.1 8.9 9 9.7V11H15V9.7C15.9 8.9 16.5 7.8 16.5 6.5C16.5 4 14.5 2 12 2Z" fill="#D2B48C"/>
-      <path d="M11 11V22L12 21L13 22V11H11Z" fill="#D2B48C"/>
-      <rect x="8.5" y="10" width="7" height="2" rx="1" fill="#8B4513"/>
+      <path d="M12 2C9.5 2 7.5 4 7.5 6.5C7.5 7.8 8.1 8.9 9 9.7V11H15V9.7C15.9 8.9 16.5 7.8 16.5 6.5C16.5 4 14.5 2 12 2Z" fill="#D2B48C" />
+      <path d="M11 11V22L12 21L13 22V11H11Z" fill="#D2B48C" />
+      <rect x="8.5" y="10" width="7" height="2" rx="1" fill="#8B4513" />
     </svg>
   )
 };
@@ -61,18 +61,18 @@ export default function CodingProfiles() {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
-        <h2 
+        <h2
           className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-24 tracking-tight text-center text-white"
           data-aos="fade-up"
         >
           Competitive <span className="text-[var(--color-brand-glow)]">Programming.</span>
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full justify-items-center">
           {profiles.map((profile, idx) => {
             const Icon = profile.icon;
             return (
-              <a 
+              <a
                 key={idx}
                 href={profile.link}
                 target="_blank"
@@ -85,11 +85,11 @@ export default function CodingProfiles() {
                 <div className="w-20 h-20 flex items-center justify-center rounded-2xl bg-[#1a1a1a] border border-[#333] mb-8 group-hover:scale-110 group-hover:border-[#555] transition-all duration-300">
                   <Icon />
                 </div>
-                
+
                 <h3 className="text-2xl font-bold mb-2 text-white">{profile.platform}</h3>
                 <p className="text-gray-500 mb-4 font-mono text-sm tracking-wide">{profile.username}</p>
                 <p className="text-lg font-semibold text-white mb-8">{profile.stats}</p>
-                
+
                 <div className="text-white/30 group-hover:text-white transition-colors duration-300 text-xl font-light">
                   →
                 </div>

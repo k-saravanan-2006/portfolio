@@ -23,7 +23,7 @@ export default function Header() {
   // Detect active section on scroll
   useEffect(() => {
     const sectionIds = ['home', 'coding-profiles', 'experience', 'projects', 'skills', 'about', 'contact'];
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -126,11 +126,11 @@ export default function Header() {
                     ref={(el) => setLinkRef(el, item.href)}
                     onClick={(e) => handleNavClick(e, item.href)}
                     className="relative inline-block text-[14px] font-semibold tracking-wide transition-all duration-300 pb-2 no-underline hover-text-glow hover:scale-110 hover:-translate-y-0.5"
-                    style={{ 
+                    style={{
                       textDecoration: 'none',
                       color: activeSection === sectionId ? 'rgb(0, 180, 166)' : '#ffffff',
-                      textShadow: activeSection === sectionId 
-                        ? '0 0 8px rgba(0, 180, 166, 0.8), 0 0 20px rgba(0, 180, 166, 0.5), 0 0 40px rgba(0, 180, 166, 0.3)' 
+                      textShadow: activeSection === sectionId
+                        ? '0 0 8px rgba(0, 180, 166, 0.8), 0 0 20px rgba(0, 180, 166, 0.5), 0 0 40px rgba(0, 180, 166, 0.3)'
                         : 'none',
                       transition: 'color 0.3s, text-shadow 0.3s',
                     }}

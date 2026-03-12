@@ -37,8 +37,8 @@ export default function Projects() {
   return (
     <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-28 pb-20">
       <div className="absolute inset-0 z-0 opacity-40">
-        <FloatingLines 
-          enabledWaves={["bottom","middle"]}
+        <FloatingLines
+          enabledWaves={["bottom", "middle"]}
           lineCount={2}
           lineDistance={4.0}
           bendRadius={4.5}

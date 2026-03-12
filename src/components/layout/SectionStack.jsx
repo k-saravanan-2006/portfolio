@@ -12,7 +12,7 @@ const SectionStack = ({ children }) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray('.stack-section');
-      
+
       sections.forEach((section, i) => {
         // Higher index sections are on top
         gsap.set(section, { zIndex: i + 1 });
@@ -27,10 +27,10 @@ const SectionStack = ({ children }) => {
 
         // For all sections except the first one, animate them coming in
         if (i > 0) {
-          gsap.fromTo(section, 
+          gsap.fromTo(section,
             { opacity: 0, scale: 0.95 },
-            { 
-              opacity: 1, 
+            {
+              opacity: 1,
               scale: 1,
               ease: "none",
               scrollTrigger: {

@@ -12,9 +12,9 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setBtnState('sending');
-    
+
     const formData = new FormData(e.target);
-    
+
     try {
       const response = await fetch('https://formsubmit.co/ajax/saravanankumar8285@gmail.com', {
         method: 'POST',
@@ -29,7 +29,7 @@ export default function Contact() {
           _subject: `Portfolio Contact from ${formData.get('name')}`,
         })
       });
-      
+
       if (response.ok) {
         setBtnState('sent');
         e.target.reset();
@@ -41,7 +41,7 @@ export default function Contact() {
       setBtnState('idle');
       alert('Failed to send message. Please try again.');
     }
-    
+
     setTimeout(() => setBtnState('idle'), 3000);
   };
 
