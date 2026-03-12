@@ -55,7 +55,7 @@ export default function Projects() {
           Featured <span className="text-[var(--color-brand-glow)]">Projects.</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 justify-items-center">
+        <div className="grid grid-cols-2 gap-4 md:gap-12 justify-items-center">
           {projects.map((project, idx) => (
             <HoverProjectCard key={idx} project={project} idx={idx} />
           ))}

@@ -44,8 +44,8 @@ export default function CodingProfiles() {
 
   return (
     <section id="coding-profiles" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
-      {/* Background Interactive Scan Grid */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Background Interactive Scan Grid - RESTORED FOR DESKTOP */}
+      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
         <GridScan
           sensitivity={0.55}
           lineThickness={1}
@@ -65,7 +65,7 @@ export default function CodingProfiles() {
           className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 md:mb-24 tracking-tight text-center text-white"
           data-aos="fade-up"
         >
-          Competitive <span className="text-[var(--color-brand-glow)]">Programming.</span>
+          Competitive <span className="text-[var(--color-brand-glow)]">Programming</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full justify-items-center">
@@ -89,12 +89,12 @@ export default function CodingProfiles() {
 
                 {/* Text Content */}
                 <div className="flex flex-col flex-1 md:items-center md:text-center text-left min-w-0">
-                  <h3 className="text-lg md:text-2xl font-bold mb-0.5 md:mb-2 text-white truncate w-full">{profile.platform}</h3>
-                  <p className="text-gray-500 mb-1 md:mb-4 font-mono text-[10px] md:text-sm tracking-wide truncate w-full">{profile.username}</p>
-                  <p className="text-sm md:text-lg font-semibold text-white truncate w-full">{profile.stats}</p>
+                  <h3 className="text-lg md:text-2xl font-bold mb-0.5 md:mb-2 text-white">{profile.platform}</h3>
+                  <p className="text-gray-500 mb-1 md:mb-4 font-mono text-[10px] md:text-sm tracking-wide">{profile.username}</p>
+                  <p className="text-sm md:text-lg font-semibold text-white">{profile.stats}</p>
                 </div>
 
-                {/* Arrow - Hidden or repositioned for small mobile */}
+                {/* Arrow */}
                 <div className="hidden sm:block text-white/30 group-hover:text-white transition-colors duration-300 text-xl font-light md:mt-8">
                   →
                 </div>

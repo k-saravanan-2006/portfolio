@@ -136,7 +136,16 @@ function LogoItemCard({ item, logoHeight }) {
 }
 
 function SkillRow({ group }) {
-  const logoHeight = 72;
+  const [logoHeight, setLogoHeight] = useState(72);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setLogoHeight(window.innerWidth < 768 ? 48 : 72);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="w-full flex flex-wrap justify-center items-center gap-6 px-8 py-4">
