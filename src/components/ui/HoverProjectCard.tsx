@@ -17,7 +17,7 @@ interface HoverProjectCardProps {
 const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => {
   return (
     <div 
-      className="relative w-full h-[340px] transition-all duration-200 mx-auto"
+      className="relative w-full max-w-[420px] h-[340px] transition-all duration-200 mx-auto"
       style={{ perspective: '800px' }}
       data-aos="fade-up"
       data-aos-delay={idx * 100}

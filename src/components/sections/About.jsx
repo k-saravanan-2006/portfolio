@@ -42,11 +42,11 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Narrative Content */}
-          <div data-aos="fade-right" data-aos-duration="1000">
-            <h2 className="text-[clamp(2.5rem,4vw,3.5rem)] font-extrabold mb-8 tracking-tight">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+            <h2 className="text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold mb-8 tracking-tight">
               Who I <span className="text-[var(--color-brand-glow)]">Am.</span>
             </h2>
-            <div className="text-[1.1rem] text-[var(--text-secondary)] space-y-6 leading-relaxed">
+            <div className="text-[1rem] md:text-[1.1rem] text-[var(--text-secondary)] space-y-6 leading-relaxed max-w-[600px] md:max-w-none">
               <p>
                 I am an AI and Software Developer specializing in machine learning,
                 computer vision, and intelligent automation systems. I have built practical,

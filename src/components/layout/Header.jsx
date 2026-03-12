@@ -2,15 +2,18 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { List, X } from '@phosphor-icons/react';
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef(null);
   const linkRefs = useRef({});
   const indicatorRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,11 +46,11 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  // Animate the indicator to the active link
+  // Animate the indicator to the active link (Desktop Only)
   useEffect(() => {
     const activeLink = linkRefs.current[activeSection];
     const indicator = indicatorRef.current;
-    if (activeLink && indicator) {
+    if (activeLink && indicator && window.innerWidth >= 768) {
       const linkRect = activeLink.getBoundingClientRect();
       const navRect = navRef.current.getBoundingClientRect();
       gsap.to(indicator, {
@@ -58,6 +61,27 @@ export default function Header() {
       });
     }
   }, [activeSection]);
+
+  // Mobile menu animation
+  useEffect(() => {
+    if (mobileMenuRef.current) {
+      if (mobileMenuOpen) {
+        gsap.to(mobileMenuRef.current, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.4,
+          ease: 'power3.out'
+        });
+      } else {
+        gsap.to(mobileMenuRef.current, {
+          autoAlpha: 0,
+          y: -20,
+          duration: 0.3,
+          ease: 'power3.in'
+        });
+      }
+    }
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { title: 'Home', href: '#home' },
@@ -71,6 +95,7 @@ export default function Header() {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
     const targetId = href.replace('#', '');
 
     if (targetId === 'home') {
@@ -108,13 +133,24 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out backdrop-blur-md ${scrolled
         ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-[19px] shadow-lg'
-        : 'bg-white/10 py-[19px] border-b border-white/10 shadow-sm'
+        : 'bg-black/20 py-[19px] border-b border-white/10 shadow-sm'
         }`}
     >
-      <div className="container mx-auto px-10 flex justify-between items-center max-w-[1400px]">
-        {/* Placeholder for Left Side / Logo */}
-        <div></div>
+      <div className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-[1400px]">
+        {/* Logo / Brand Name */}
+        <div 
+          className="text-xl font-bold tracking-tighter"
+          style={{
+            background: 'linear-gradient(to right, #00b4a6, #ffffff)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textShadow: '0 0 15px rgba(0, 180, 166, 0.3)'
+          }}
+        >
+          SK
+        </div>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:block relative" ref={navRef}>
           <ul className="flex gap-8 list-none m-0 p-0 items-center">
             {navLinks.map((item) => {
@@ -152,6 +188,50 @@ export default function Header() {
             }}
           />
         </nav>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden text-white p-2 focus:outline-none z-50 transition-all active:scale-90"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? (
+            <X size={28} weight="bold" className="text-[rgb(0,180,166)] shadow-[0_0_10px_rgba(0,180,166,0.5)]" />
+          ) : (
+            <List size={28} weight="bold" />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        ref={mobileMenuRef}
+        className="absolute top-full left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#222] md:hidden overflow-hidden invisible opacity-0"
+        style={{ pointerEvents: mobileMenuOpen ? 'auto' : 'none' }}
+      >
+        <ul className="flex flex-col items-center py-10 gap-6 list-none m-0 p-0">
+          {navLinks.map((item) => {
+            const sectionId = item.href.replace('#', '');
+            const isActive = activeSection === sectionId;
+            return (
+              <li key={item.title} className="w-full text-center">
+                <a
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`block text-xl font-bold tracking-widest transition-all duration-300 py-2 ${
+                    isActive ? 'text-[rgb(0,180,166)] scale-110' : 'text-white/70 hover:text-white'
+                  }`}
+                  style={{
+                    textDecoration: 'none',
+                    textShadow: isActive ? '0 0 15px rgba(0, 180, 166, 0.6)' : 'none'
+                  }}
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </header>
   );

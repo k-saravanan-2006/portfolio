@@ -62,7 +62,7 @@ export default function CodingProfiles() {
 
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
         <h2
-          className="text-[clamp(2rem,4vw,3.5rem)] font-extrabold mb-24 tracking-tight text-center text-white"
+          className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 md:mb-24 tracking-tight text-center text-white"
           data-aos="fade-up"
         >
           Competitive <span className="text-[var(--color-brand-glow)]">Programming.</span>
@@ -77,20 +77,25 @@ export default function CodingProfiles() {
                 href={profile.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex flex-col items-center p-10 rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-3 w-full max-w-[340px] no-underline"
+                className="group flex flex-row md:flex-col items-center p-5 md:p-10 rounded-2xl md:rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 md:hover:-translate-y-3 w-full md:max-w-[340px] no-underline gap-5 md:gap-0"
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 data-aos="fade-up"
                 data-aos-delay={idx * 150}
               >
-                <div className="w-20 h-20 flex items-center justify-center rounded-2xl bg-[#1a1a1a] border border-[#333] mb-8 group-hover:scale-110 group-hover:border-[#555] transition-all duration-300">
+                {/* Icon Container */}
+                <div className="w-14 h-14 md:w-20 md:h-20 flex-shrink-0 flex items-center justify-center rounded-xl md:rounded-2xl bg-[#1a1a1a] border border-[#333] md:mb-8 group-hover:scale-110 group-hover:border-[#555] transition-all duration-300">
                   <Icon />
                 </div>
 
-                <h3 className="text-2xl font-bold mb-2 text-white">{profile.platform}</h3>
-                <p className="text-gray-500 mb-4 font-mono text-sm tracking-wide">{profile.username}</p>
-                <p className="text-lg font-semibold text-white mb-8">{profile.stats}</p>
+                {/* Text Content */}
+                <div className="flex flex-col flex-1 md:items-center md:text-center text-left min-w-0">
+                  <h3 className="text-lg md:text-2xl font-bold mb-0.5 md:mb-2 text-white truncate w-full">{profile.platform}</h3>
+                  <p className="text-gray-500 mb-1 md:mb-4 font-mono text-[10px] md:text-sm tracking-wide truncate w-full">{profile.username}</p>
+                  <p className="text-sm md:text-lg font-semibold text-white truncate w-full">{profile.stats}</p>
+                </div>
 
-                <div className="text-white/30 group-hover:text-white transition-colors duration-300 text-xl font-light">
+                {/* Arrow - Hidden or repositioned for small mobile */}
+                <div className="hidden sm:block text-white/30 group-hover:text-white transition-colors duration-300 text-xl font-light md:mt-8">
                   →
                 </div>
               </a>
