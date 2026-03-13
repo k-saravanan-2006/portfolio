@@ -17,7 +17,7 @@ interface HoverProjectCardProps {
 const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => {
   return (
     <div 
-      className="relative w-full max-w-[420px] md:h-[340px] transition-all duration-200 mx-auto group"
+      className="relative w-full max-w-[420px] md:max-w-[550px] h-[250px] md:h-[340px] transition-all duration-200 mx-auto group"
       style={{ perspective: '800px' }}
       data-aos="fade-up"
       data-aos-delay={idx * 100}
@@ -32,7 +32,7 @@ const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => 
         href={project.link}
         target="_blank"
         rel="noreferrer"
-        className="card-element relative md:absolute md:inset-0 z-0 flex flex-col rounded-xl md:rounded-3xl transition-all duration-[400ms] ml-auto mr-auto overflow-hidden bg-gradient-to-br from-[#00b4a6] via-[#00e5cc] to-white p-[1.5px] md:p-[2px]"
+        className="card-element relative h-full md:absolute md:inset-0 z-0 flex flex-col rounded-xl md:rounded-3xl transition-all duration-[400ms] ml-auto mr-auto overflow-hidden bg-gradient-to-br from-[#00b4a6] via-[#00e5cc] to-white p-[1.5px] md:p-[2px] !no-underline"
       >
         {/* Card inner content wrapped in black bg */}
         <div className="rounded-[10px] md:rounded-[22px] bg-[#000000] z-0 overflow-hidden flex flex-col transition-all duration-300 h-full w-full">
@@ -49,12 +49,12 @@ const HoverProjectCard: React.FC<HoverProjectCardProps> = ({ project, idx }) => 
           {/* Content Body */}
           <div className="p-3 md:p-6 flex flex-col flex-1 z-10 bg-[#000000] min-w-0">
             <div className="flex justify-between items-start mb-1 md:mb-2">
-              <h3 className="text-sm md:text-xl font-bold text-white leading-tight md:leading-normal">{project.title}</h3>
+              <h3 className="text-sm md:text-xl font-bold text-white leading-tight md:leading-normal !no-underline">{project.title}</h3>
               <div className="text-[#00e5cc] p-1.5 md:p-2 rounded-full bg-[rgba(0,229,204,0.1)] opacity-0 group-hover:opacity-100 transition-all -translate-y-2 group-hover:translate-y-0 hidden md:flex items-center justify-center">
                 <ArrowUpRight size={18} weight="bold" />
               </div>
             </div>
-            <p className="text-[var(--text-secondary)] mb-2 md:mb-4 text-[10px] md:text-sm leading-tight md:leading-relaxed font-light">
+            <p className="text-[var(--text-secondary)] mb-2 md:mb-4 text-[10px] md:text-sm leading-tight md:leading-relaxed font-light !no-underline">
               {project.description}
             </p>
             

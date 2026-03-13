@@ -190,3 +190,20 @@ h4 {
   font-size: 0.85rem;
   margin-top: 1.5rem;
 }
+
+/* Force remove persistent underlines from project cards */
+.card-element, 
+.card-element *,
+.card-element:hover,
+.card-element:focus,
+.card-element:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.card-element h3,
+.card-element p {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}

@@ -47,7 +47,7 @@ export default function Projects() {
           parallax={true}
         />
       </div>
-      <div className="container mx-auto px-6 sm:px-8 max-w-[960px] w-full relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 md:max-w-[1200px] w-full relative z-10">
         <h2
           className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
           data-aos="fade-up"
@@ -55,7 +55,7 @@ export default function Projects() {
           Featured <span className="text-[var(--color-brand-glow)]">Projects.</span>
         </h2>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-12 justify-items-center">
+        <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center">
           {projects.map((project, idx) => (
             <HoverProjectCard key={idx} project={project} idx={idx} />
           ))}
