@@ -38,6 +38,7 @@ export default function About() {
         {/* Bottom Fade Mask */}
         <div className="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-black via-black/80 to-transparent z-[1] pointer-events-none" />
       </div>
+
       <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -68,7 +69,12 @@ export default function About() {
           </div>
 
           {/* Stat Cards */}
-          <div className="flex flex-col gap-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div
+            className="grid grid-cols-3 gap-3 lg:grid-cols-1 lg:flex lg:flex-col lg:gap-4"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
             {stats.map((stat, idx) => (
               <ElectricBorder
                 key={idx}
@@ -79,13 +85,11 @@ export default function About() {
                 style={{ borderRadius: 16 }}
                 className="w-full h-full text-center"
               >
-                <div
-                  className="flex flex-col items-center justify-center p-10 h-full rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-2 hover:border-[rgba(216,236,248,0.3)] hover:shadow-[0_10px_30px_rgba(216,236,248,0.1)] text-center relative z-10"
-                >
-                  <h3 className="text-5xl font-extrabold text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                <div className="flex flex-col items-center justify-center p-3 lg:gap-4 lg:py-7 lg:px-10 h-full min-h-[0px] lg:min-h-[150px] lg:max-h-[155px] rounded-2xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-300 hover:-translate-y-2 hover:border-[rgba(216,236,248,0.3)] hover:shadow-[0_10px_30px_rgba(216,236,248,0.1)] text-center relative z-10">
+                  <h3 className="text-xl sm:text-2xl lg:text-5xl font-extrabold text-white mb-1 lg:mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                     {stat.value}
                   </h3>
-                  <p className="text-[var(--text-secondary)] text-sm font-medium tracking-wide uppercase">
+                  <p className="text-[var(--text-secondary)] text-[9px] sm:text-[10px] lg:text-sm font-medium tracking-wide uppercase leading-tight">
                     {stat.label}
                   </p>
                 </div>

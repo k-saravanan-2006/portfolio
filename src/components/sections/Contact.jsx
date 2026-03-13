@@ -56,8 +56,8 @@ export default function Contact() {
           hoverFillColor="#00e5cc"
         />
       </div>
-      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10 pointer-events-none flex-1 flex flex-col justify-center pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20 items-center pointer-events-auto">
+      <div className="container mx-auto px-4 sm:px-8 max-w-[1200px] w-full relative z-10 pointer-events-none flex-1 flex flex-col justify-center pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 items-center pointer-events-auto">
           <div data-aos="fade-right" data-aos-duration="1000">
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-extrabold leading-[1.1] mb-6 tracking-tight">
               Let's build something <br />
@@ -66,7 +66,7 @@ export default function Contact() {
             <p className="text-[1.1rem] text-[var(--text-secondary)] mb-10 max-w-[600px]">
               Available for freelance opportunities and exciting projects.
             </p>
-            <div className="flex gap-6 mt-8">
+            <div className="flex gap-6 mt-1">
               {[
                 { Icon: GithubLogo, href: 'https://github.com/k-saravanan-2006' },
                 { Icon: LinkedinLogo, href: 'https://www.linkedin.com/in/k-saravanan-14b03132a/' },
@@ -77,8 +77,7 @@ export default function Contact() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-2xl text-white transition-all duration-300 hover:bg-[rgb(0,180,166)] hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:-translate-y-[5px]"
-                  data-aos="zoom-in"
+                  className="flex items-center justify-center w-[38px] h-[38px] md:w-[50px] md:h-[50px] rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[5px] text-xl md:text-2xl text-white transition-all duration-300 hover:bg-[rgb(0,180,166)] hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:-translate-y-[5px]"
                   data-aos-delay={300 + idx * 100}
                 >
                   <item.Icon weight="fill" />
@@ -87,7 +86,7 @@ export default function Contact() {
             </div>
           </div>
           <div
-            className="bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl p-12 backdrop-blur-[15px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+            className="bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-3xl p-6 sm:p-8 lg:p-12 backdrop-blur-[15px] shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             data-aos="fade-left"
             data-aos-duration="1000"
             data-aos-delay="200"
@@ -113,7 +112,7 @@ export default function Contact() {
                 <AnimatedInput
                   as="textarea"
                   name="message"
-                  rows="4"
+                  rows="3"
                   required
                   placeholder="Your Message"
                 />

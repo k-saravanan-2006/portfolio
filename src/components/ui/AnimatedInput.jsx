@@ -20,7 +20,7 @@ const AnimatedInput = ({ as = 'input', className = '', ...props }) => {
             w-full bg-[#010201] text-white border-none rounded-[10px] 
             px-5 py-4 font-inherit text-base outline-none z-10 relative 
             placeholder:text-gray-500
-            ${as === 'textarea' ? 'min-h-[120px] resize-y' : 'h-[56px]'}
+            ${as === 'textarea' ? 'min-h-[80px] lg:min-h-[120px] resize-y' : 'h-[56px]'}
           `}
           {...props}
         />
