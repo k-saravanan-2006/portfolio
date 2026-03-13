@@ -3,8 +3,8 @@ import ShinyText from '../ui/ShinyText';
 
 export default function Footer() {
   return (
-    <footer className="py-[15px] bg-black/80 backdrop-blur-sm border-t border-[#111]">
-      <div className="container mx-[22px] px-8 flex flex-row  justify-between text-sm text-gray-500">
+    <footer className="py-[10px] md:py-[15px] bg-black/80 backdrop-blur-sm border-t border-[#111]">
+      <div className="container mx-[22px] px-8 flex flex-row  justify-between text-[10px] md:text-sm text-gray-500">
 
         {/* Left side */}
         <ShinyText
