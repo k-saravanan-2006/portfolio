@@ -133,12 +133,12 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out backdrop-blur-md ${scrolled
         ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-[19px] shadow-lg'
-        : 'bg-black/20 py-[19px] border-b border-white/10 shadow-sm'
+        : 'bg-black/20 py-[15px] border-b border-white/10 shadow-sm'
         }`}
     >
       <div className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-[1400px]">
         {/* Logo / Brand Name */}
-        <div 
+        <div
           className="text-xl font-bold tracking-tighter"
           style={{
             background: 'linear-gradient(to right, #00b4a6, #ffffff)',
@@ -218,9 +218,8 @@ export default function Header() {
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`block text-xl font-bold tracking-widest transition-all duration-300 py-2 ${
-                    isActive ? 'text-[rgb(0,180,166)] scale-110' : 'text-white/70 hover:text-white'
-                  }`}
+                  className={`block text-xl font-bold tracking-widest transition-all duration-300 py-2 ${isActive ? 'text-[rgb(0,180,166)] scale-110' : 'text-white/70 hover:text-white'
+                    }`}
                   style={{
                     textDecoration: 'none',
                     textShadow: isActive ? '0 0 15px rgba(0, 180, 166, 0.6)' : 'none'

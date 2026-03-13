@@ -43,7 +43,7 @@ export default function CodingProfiles() {
   ];
 
   return (
-    <section id="coding-profiles" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
+    <section id="coding-profiles" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-20 pb-10">
       {/* Background Interactive Scan Grid - RESTORED FOR DESKTOP */}
       <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
         <GridScan

@@ -178,7 +178,7 @@ export default function Skills() {
 
       <div className="container mx-auto px-6 sm:px-8 max-w-[1200px] text-center w-full z-10 mb-14">
         <h2 className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold tracking-tight" data-aos="fade-up">
-          My <span className="text-[var(--color-brand-glow)]">Expertise.</span>
+          My <span className="text-[var(--color-brand-glow)]">Expertise</span>
         </h2>
       </div>
 

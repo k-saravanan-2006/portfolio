@@ -35,7 +35,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-28 pb-20">
+    <section id="projects" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-25 pb-10">
       <div className="absolute inset-0 z-0 opacity-40">
         <FloatingLines
           enabledWaves={["bottom", "middle"]}
@@ -52,7 +52,7 @@ export default function Projects() {
           className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
           data-aos="fade-up"
         >
-          Featured <span className="text-[var(--color-brand-glow)]">Projects.</span>
+          Featured <span className="text-[var(--color-brand-glow)]">Projects</span>
         </h2>
 
         <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center">

@@ -10,7 +10,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center py-20">
+    <section id="about" className="min-h-screen w-full relative overflow-hidden bg-black flex items-center justify-center pt-20 pb-10">
       <div className="absolute inset-0 z-0 pointer-events-auto">
         {/* Top Fade Mask */}
         <div className="absolute top-0 left-0 right-0 h-[40vh] bg-gradient-to-b from-black via-black/80 to-transparent z-[1] pointer-events-none" />
@@ -43,8 +43,8 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Narrative Content */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
-            <h2 className="text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold mb-8 tracking-tight">
+          <div className="flex flex-col items-center md:items-center text-center" data-aos="fade-right" data-aos-duration="1000">
+            <h2 className="text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold mb-8 tracking-tight text-center">
               Who I <span className="text-[var(--color-brand-glow)]">Am.</span>
             </h2>
             <div className="text-[1rem] md:text-[1.1rem] text-[var(--text-secondary)] space-y-6 leading-relaxed max-w-[600px] md:max-w-none">

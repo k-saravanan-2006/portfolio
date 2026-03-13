@@ -41,7 +41,7 @@ export default function Experience() {
           className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 tracking-tight text-center md:text-left"
           data-aos="fade-right"
         >
-          My <span className="text-[var(--color-brand-glow)]">Experience.</span>
+          My <span className="text-[var(--color-brand-glow)]">Experience</span>
         </h2>
 
         <div className="relative border-l-0 md:border-l border-[rgba(216,236,248,0.2)] ml-0">
