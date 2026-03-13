@@ -48,7 +48,7 @@ const SKILL_GROUPS = [
   },
 ];
 
-function LogoItemCard({ item, logoHeight }) {
+function LogoItemCard({ item, logoHeight, isMobile }) {
   const [hovered, setHovered] = useState(false);
   const [cardPos, setCardPos] = useState({ x: 0, y: 0 });
   const wrapRef = useRef(null);
@@ -72,7 +72,7 @@ function LogoItemCard({ item, logoHeight }) {
         className="flex flex-col items-center justify-center cursor-pointer select-none"
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
-        style={{ margin: '0 8px' }}
+        style={{ margin: isMobile ? '0 4px' : '0 8px' }}
       >
         <img
           src={item.src}
@@ -93,7 +93,7 @@ function LogoItemCard({ item, logoHeight }) {
         />
       </div>
 
-      {/* Fixed-position card — renders above overflow boundary */}
+      {/* Fixed-position hover card */}
       {hovered && (
         <div style={{
           position: 'fixed',
@@ -109,20 +109,24 @@ function LogoItemCard({ item, logoHeight }) {
             WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(0, 229, 204, 0.45)',
             borderRadius: '16px',
-            padding: '14px 20px',
+            padding: isMobile ? '10px 14px' : '14px 20px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: '6px',
             boxShadow: '0 8px 40px rgba(0,180,166,0.3), 0 2px 12px rgba(0,0,0,0.75)',
             animation: 'cardPopIn 0.2s cubic-bezier(0.34,1.56,0.64,1)',
-            minWidth: '150px',
+            minWidth: isMobile ? '120px' : '150px',
           }}>
-            <img src={item.src} alt={item.title} style={{ height: '42px', width: 'auto', objectFit: 'contain', marginBottom: '4px' }} />
-            <span style={{ color: '#fff', fontWeight: 800, fontSize: '0.92rem', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
+            <img
+              src={item.src}
+              alt={item.title}
+              style={{ height: isMobile ? '30px' : '42px', width: 'auto', objectFit: 'contain', marginBottom: '4px' }}
+            />
+            <span style={{ color: '#fff', fontWeight: 800, fontSize: isMobile ? '0.78rem' : '0.92rem', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
               {item.title}
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.58)', fontSize: '0.73rem', textAlign: 'center', maxWidth: '175px', whiteSpace: 'normal', lineHeight: 1.45 }}>
+            <span style={{ color: 'rgba(255,255,255,0.58)', fontSize: isMobile ? '0.65rem' : '0.73rem', textAlign: 'center', maxWidth: isMobile ? '130px' : '175px', whiteSpace: 'normal', lineHeight: 1.45 }}>
               {item.description}
             </span>
           </div>
@@ -137,10 +141,13 @@ function LogoItemCard({ item, logoHeight }) {
 
 function SkillRow({ group }) {
   const [logoHeight, setLogoHeight] = useState(72);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setLogoHeight(window.innerWidth < 768 ? 48 : 72);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setLogoHeight(mobile ? 36 : 72);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -148,9 +155,15 @@ function SkillRow({ group }) {
   }, []);
 
   return (
-    <div className="w-full flex flex-wrap justify-center items-center gap-6 px-8 py-4">
+    <div className="w-full flex flex-wrap justify-center items-center gap-3 md:gap-6 px-3 md:px-8 py-2 md:py-4">
       {group.logos.map((item, i) => (
-        <LogoItemCard key={i} item={item} logoHeight={logoHeight} onActiveChange={() => { }} />
+        <LogoItemCard
+          key={i}
+          item={item}
+          logoHeight={logoHeight}
+          isMobile={isMobile}
+          onActiveChange={() => {}}
+        />
       ))}
     </div>
   );
@@ -169,6 +182,7 @@ export default function Skills() {
           backgroundColor="#000000"
         />
       </div>
+
       <style>{`
         @keyframes cardPopIn {
           from { opacity: 0; transform: translateX(-50%) scale(0.75); }
@@ -205,7 +219,7 @@ export default function Skills() {
               <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(0,229,204,0.45))' }} />
             </div>
 
-            {/* Scrolling row */}
+            {/* Logo row */}
             <div style={{ paddingTop: '6px', paddingBottom: '24px', width: '100%' }}>
               <SkillRow group={group} />
             </div>
