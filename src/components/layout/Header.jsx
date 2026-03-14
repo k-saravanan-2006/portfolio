@@ -24,28 +24,40 @@ export default function Header() {
   }, []);
 
   // Detect active section on scroll
-  useEffect(() => {
-    const sectionIds = ['home', 'coding-profiles', 'experience', 'projects', 'skills', 'about', 'contact'];
+useEffect(() => {
+  const sectionIds = ['home', 'coding-profiles', 'experience', 'projects', 'skills', 'about', 'contact'];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.35, rootMargin: '-80px 0px 0px 0px' }
-    );
+  let cleanup = () => {};
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+  const timeout = setTimeout(() => {
+    const updateActive = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const sections = gsap.utils.toArray('.stack-section');
 
-    return () => observer.disconnect();
-  }, []);
+      if (sections.length === 0) return;
 
+      const sectionHeight = totalHeight / sections.length;
+      const activeIndex = Math.min(
+        Math.floor(scrollY / sectionHeight),
+        sections.length - 1
+      );
+
+      const activeId = sectionIds[activeIndex];
+      if (activeId) setActiveSection(activeId);
+    };
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+
+    cleanup = () => window.removeEventListener('scroll', updateActive);
+  }, 500);
+
+  return () => {
+    clearTimeout(timeout);
+    cleanup();
+  };
+}, []);
   // Animate the indicator to the active link (Desktop Only)
   useEffect(() => {
     const activeLink = linkRefs.current[activeSection];
@@ -93,36 +105,52 @@ export default function Header() {
     { title: 'Contact', href: '#contact' },
   ];
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const targetId = href.replace('#', '');
+const handleNavClick = (e, href) => {
+  e.preventDefault();
+  setMobileMenuOpen(false);
+  const targetId = href.replace('#', '');
 
-    if (targetId === 'home') {
-      gsap.to(window, {
-        scrollTo: 0,
-        duration: 1.2,
-        ease: "power4.inOut",
-        overwrite: true
-      });
-      return;
-    }
+  const sectionIds = ['home', 'coding-profiles', 'experience', 'projects', 'skills', 'about', 'contact'];
+  const targetIndex = sectionIds.indexOf(targetId);
 
-    const sections = gsap.utils.toArray('.stack-section');
-    const targetIndex = sections.findIndex(section =>
-      section.querySelector(`#${targetId}`) || section.id === targetId
-    );
+  if (targetIndex === -1) return;
 
-    if (targetIndex !== -1) {
-      const targetSection = sections[targetIndex];
-      gsap.to(window, {
-        scrollTo: { y: targetSection.offsetTop, autoKill: false },
-        duration: 1.5,
-        ease: "expo.inOut",
-        overwrite: true
-      });
-    }
+  if (targetIndex === 0) {
+    smoothScrollTo(0);
+    return;
+  }
+
+  // Get exact scroll position from ScrollTrigger instances
+  const triggers = ScrollTrigger.getAll().filter(t => t.pin);
+  
+  if (triggers[targetIndex]) {
+    const targetY = triggers[targetIndex].start;
+    smoothScrollTo(targetY);
+  } else {
+    // Fallback
+    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    const sectionHeight = totalHeight / sectionIds.length;
+    smoothScrollTo(targetIndex * sectionHeight);
+  }
+};
+
+const smoothScrollTo = (targetScrollY) => {
+  const startY = window.scrollY;
+  const distance = targetScrollY - startY;
+  const duration = 1100;
+  let startTime = null;
+
+  const easeInOut = (t) => t * t * t * (t * (t * 6 - 15) + 10);
+
+  const step = (timestamp) => {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    window.scrollTo(0, startY + distance * easeInOut(progress));
+    if (progress < 1) requestAnimationFrame(step);
   };
+
+  requestAnimationFrame(step);
+};
 
   const setLinkRef = useCallback((el, href) => {
     const id = href.replace('#', '');
@@ -144,7 +172,7 @@ export default function Header() {
             background: 'linear-gradient(to right, #00b4a6, #ffffff)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 15px rgba(0, 180, 166, 0.3)'
+            textShadow: '0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(0, 180, 166, 0.2)'
           }}
         >
           SK
@@ -196,9 +224,9 @@ export default function Header() {
           aria-label="Toggle mobile menu"
         >
           {mobileMenuOpen ? (
-            <X size={28} weight="bold" className="text-[rgb(0,180,166)] shadow-[0_0_10px_rgba(0,180,166,0.5)]" />
+            <X size={28} weight="bold" className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.7)]" />
           ) : (
-            <List size={28} weight="bold" />
+            <List size={28} weight="bold" className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.7)]" />
           )}
         </button>
       </div>
@@ -206,8 +234,12 @@ export default function Header() {
       {/* Mobile Menu Dropdown */}
       <div
         ref={mobileMenuRef}
-        className="absolute top-full left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#222] md:hidden overflow-hidden invisible opacity-0"
-        style={{ pointerEvents: mobileMenuOpen ? 'auto' : 'none' }}
+        className="absolute top-full left-0 w-full bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-[#222] md:hidden overflow-hidden"
+        style={{
+          pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+          visibility: 'hidden',
+          opacity: 0
+        }}
       >
         <ul className="flex flex-col items-center py-10 gap-6 list-none m-0 p-0">
           {navLinks.map((item) => {
@@ -218,11 +250,13 @@ export default function Header() {
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`block text-xl font-bold tracking-widest transition-all duration-300 py-2 ${isActive ? 'text-[rgb(0,180,166)] scale-110' : 'text-white/70 hover:text-white'
-                    }`}
+                  className={`block text-xl font-bold tracking-widest transition-all duration-300 py-2 ${isActive ? 'scale-110' : 'opacity-80 hover:opacity-100 hover:scale-105'
+                    } text-white`}
                   style={{
                     textDecoration: 'none',
-                    textShadow: isActive ? '0 0 15px rgba(0, 180, 166, 0.6)' : 'none'
+                    textShadow: isActive
+                      ? '0 0 15px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.5)'
+                      : '0 0 8px rgba(255, 255, 255, 0.4)'
                   }}
                 >
                   {item.title}
