@@ -160,8 +160,8 @@ const smoothScrollTo = (targetScrollY) => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ease-in-out backdrop-blur-md ${scrolled
-        ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-[19px] shadow-lg'
-        : 'bg-black/20 py-[15px] border-b border-white/10 shadow-sm'
+        ? 'bg-[#0a0a0a]/90 border-b border-[#222] py-[4px] md:py-[19px] shadow-lg'
+        : 'bg-black/20 py-[4px] md:py-[15px] border-b border-white/10 shadow-sm'
         }`}
     >
       <div className="container mx-auto px-6 md:px-10 flex justify-between items-center max-w-[1400px]">

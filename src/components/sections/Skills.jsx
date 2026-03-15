@@ -162,7 +162,7 @@ function SkillRow({ group }) {
           item={item}
           logoHeight={logoHeight}
           isMobile={isMobile}
-          onActiveChange={() => {}}
+          onActiveChange={() => { }}
         />
       ))}
     </div>
@@ -171,9 +171,9 @@ function SkillRow({ group }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="min-h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center pt-28 pb-20">
+    <section id="skills" className="min-h-screen w-full relative overflow-hidden bg-black flex flex-col items-center justify-center pt-17 md:pt-28 pb-8">
       {/* Orb animated background */}
-      <div className="absolute inset-0 z-0" style={{ opacity: 0.35, pointerEvents: 'none' }}>
+      <div className="absolute inset-0 z-0 md:pt-10" style={{ opacity: 0.35, pointerEvents: 'none' }}>
         <Orb
           hue={0}
           hoverIntensity={2}
@@ -190,7 +190,7 @@ export default function Skills() {
         }
       `}</style>
 
-      <div className="container mx-auto px-6 sm:px-8 max-w-[1200px] text-center w-full z-10 mb-14">
+      <div className="container mx-auto px-6 sm:px-8 max-w-[1200px] text-center w-full z-10 mb-1 md:mb-14">
         <h2 className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold tracking-tight" data-aos="fade-up">
           My <span className="text-[var(--color-brand-glow)]">Expertise</span>
         </h2>
@@ -220,7 +220,7 @@ export default function Skills() {
             </div>
 
             {/* Logo row */}
-            <div style={{ paddingTop: '6px', paddingBottom: '24px', width: '100%' }}>
+            <div style={{ paddingTop: '6px', paddingBottom: '6px', width: '100%' }}>
               <SkillRow group={group} />
             </div>
           </div>

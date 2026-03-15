@@ -49,13 +49,13 @@ export default function Projects() {
       </div>
       <div className="container mx-auto px-6 sm:px-8 md:max-w-[1200px] w-full relative z-10">
         <h2
-          className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-12 tracking-tight text-center"
+          className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-20 tracking-tight text-center"
           data-aos="fade-up"
         >
           Featured <span className="text-[var(--color-brand-glow)]">Projects</span>
         </h2>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center">
+        <div className="grid grid-cols-2 gap-4 md:gap-10 justify-items-center md:mt-4">
           {projects.map((project, idx) => (
             <HoverProjectCard key={idx} project={project} idx={idx} />
           ))}

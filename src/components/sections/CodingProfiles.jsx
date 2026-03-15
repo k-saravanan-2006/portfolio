@@ -60,7 +60,7 @@ export default function CodingProfiles() {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-0 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
+      <div className="container mx-auto px-4 py-3 md:px-0 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
         <h2
           className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 md:mb-50~ tracking-tight text-center text-white"
           data-aos="fade-up"
@@ -77,7 +77,7 @@ export default function CodingProfiles() {
                 href={profile.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex flex-row md:flex-col items-center p-5 md:p-15 rounded-2xl md:rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 md:hover:-translate-y-3 w-full md:max-w-[500px] no-underline gap-5 md:gap-0"
+                className="group flex flex-row md:flex-col items-center p-4 md:p-5 rounded-2xl md:rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 md:hover:-translate-y-3 w-full md:max-w-[500px] no-underline gap-5 md:gap-0"
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 data-aos="fade-up"
                 data-aos-delay={idx * 150}
