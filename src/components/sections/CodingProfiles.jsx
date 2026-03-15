@@ -36,7 +36,7 @@ export default function CodingProfiles() {
     {
       platform: 'CodeChef',
       username: '@sara_chef',
-      stats: '1500+ Rating (2 Star)',
+      stats: '1500+ Rating',
       icon: Icons.CodeChef,
       link: '#',
     }
@@ -60,15 +60,15 @@ export default function CodingProfiles() {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
+      <div className="container mx-auto px-4 md:px-0 max-w-[1200px] w-full relative z-10 flex flex-col items-center">
         <h2
-          className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 md:mb-24 tracking-tight text-center text-white"
+          className="text-[clamp(2.2rem,6vw,3.5rem)] font-extrabold mb-16 md:mb-50~ tracking-tight text-center text-white"
           data-aos="fade-up"
         >
           Competitive <span className="text-[var(--color-brand-glow)]">Programming</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full justify-items-center md:mt-5">
           {profiles.map((profile, idx) => {
             const Icon = profile.icon;
             return (
@@ -77,25 +77,25 @@ export default function CodingProfiles() {
                 href={profile.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex flex-row md:flex-col items-center p-5 md:p-10 rounded-2xl md:rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 md:hover:-translate-y-3 w-full md:max-w-[340px] no-underline gap-5 md:gap-0"
+                className="group flex flex-row md:flex-col items-center p-5 md:p-15 rounded-2xl md:rounded-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-[10px] transition-all duration-500 hover:border-[#444] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] hover:-translate-y-1 md:hover:-translate-y-3 w-full md:max-w-[500px] no-underline gap-5 md:gap-0"
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 data-aos="fade-up"
                 data-aos-delay={idx * 150}
               >
                 {/* Icon Container */}
-                <div className="w-14 h-14 md:w-20 md:h-20 flex-shrink-0 flex items-center justify-center rounded-xl md:rounded-2xl bg-[#1a1a1a] border border-[#333] md:mb-8 group-hover:scale-110 group-hover:border-[#555] transition-all duration-300">
+                <div className="w-14 h-14 md:w-20 md:h-20 flex-shrink-0 flex items-center justify-center rounded-xl md:rounded-2xl bg-[#1a1a1a] border border-[#333] md:mb-4 group-hover:scale-110 group-hover:border-[#555] transition-all duration-300">
                   <Icon />
                 </div>
 
                 {/* Text Content */}
-                <div className="flex flex-col flex-1 md:items-center md:text-center text-left min-w-0">
+                <div className="flex flex-col flex- md:items-center md:text-center md:w-[200px] text-left min-w-0">
                   <h3 className="text-lg md:text-2xl font-bold mb-0.5 md:mb-2 text-white">{profile.platform}</h3>
                   <p className="text-gray-500 mb-1 md:mb-4 font-mono text-[10px] md:text-sm tracking-wide">{profile.username}</p>
-                  <p className="text-sm md:text-lg font-semibold text-white">{profile.stats}</p>
+                  <p className="text-sm md:text-sm font-semibold text-white md:whitespace-nowrap">{profile.stats}</p>
                 </div>
 
                 {/* Arrow */}
-                <div className="hidden sm:block text-white/30 group-hover:text-white transition-colors duration-300 text-xl font-light md:mt-8">
+                <div className="hidden sm:block text-white/30 group-hover:text-white transition-colors duration-300 text-4xl font-light md:mb-3">
                   →
                 </div>
               </a>
