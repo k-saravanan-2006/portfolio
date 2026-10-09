@@ -1,0 +1,350 @@
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Glowing border spill mask */
+.ai-glow-spill-mask {
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 50%,
+    black 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 50%,
+    black 100%
+  );
+}
+
+/* Base Reset & Core Atmosphere */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Managed by Lenis */
+}
+
+body {
+  background-color: var(--bg-deep);
+  min-height: 100vh;
+  overflow-x: clip; /* Does not break position: sticky */
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Accessibility Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
+/* Reduced Motion Graceful Degradation */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan,
+.text-gradient-blue,
+.text-blue-gradient {
+  background: linear-gradient(
+    90deg,
+    #20CFFF 0%,
+    #176FE5 50%,
+    #102F63 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(32, 207, 255, 0.35))
+          drop-shadow(0 0 18px rgba(23, 111, 229, 0.20));
+}
+
+.text-gradient-heading {
+  background: linear-gradient(
+    90deg,
+    #20CFFF 0%,
+    #176FE5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(32, 207, 255, 0.35))
+          drop-shadow(0 0 18px rgba(23, 111, 229, 0.20));
+}
+
+.story-subtitle {
+  color: #20CFFF;
+  background: linear-gradient(
+    90deg,
+    #F4FBFF 0%,
+    #20CFFF 45%,
+    #176FE5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(32, 207, 255, 0.35))
+          drop-shadow(0 0 18px rgba(23, 111, 229, 0.20));
+}
+
+.story-subtitle .scroll-reveal-word,
+.story-subtitle .scroll-character-char {
+  color: #20CFFF;
+  background: linear-gradient(
+    90deg,
+    #F4FBFF 0%,
+    #20CFFF 45%,
+    #176FE5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero ParticleText Wrapper */
+.hero-name-wrapper {
+  position: relative;
+  width: 100%;
+  height: clamp(4.5rem, 8vw, 7rem);
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Glassmorphism Surface Utility */
+.glass-panel {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-highlight);
+}
+
+/* Container Constraint */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Subtle Grid Background Pattern */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* CometDial Compact Transparent Glass HUD */
+.comet-dial-hud {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 15, 30, 0.10);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(125, 211, 255, 0.12);
+  border-radius: 50%;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    inset 0 0 10px rgba(80, 190, 255, 0.02);
+}
+
+/* Targeted rule to hide any external/injected Gemini preview badges or branding */
+[id*="gemini"],
+[class*="gemini-"],
+.gemini-branding,
+.gemini-badge {
+  display: none !important;
+}
+
+/* Custom Futuristic Cursor - hide default OS cursor on fine pointer devices */
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  [data-cursor],
+  label {
+    cursor: none !important;
+  }
+}
+
+/* Click Burst Futuristic Radiant Sun / Energy Burst Animation (0–750ms) */
+.cyber-sun-burst-wrap {
+  transform: translate(-50%, -50%);
+  animation: cyberSunBurst 750ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+@keyframes cyberSunBurst {
+  0% {
+    /* 0ms: small bright energy core starts */
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0.6;
+    filter: drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 12px #20CFFF);
+  }
+  16% {
+    /* 120ms: small bright energy core firmly established */
+    transform: translate(-50%, -50%) scale(0.68);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px #FFFFFF) drop-shadow(0 0 16px #20CFFF) drop-shadow(0 0 24px #176FE5);
+  }
+  40% {
+    /* 300ms: sun expands + radial rays appear */
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #FFFFFF) drop-shadow(0 0 24px #20CFFF) drop-shadow(0 0 38px #176FE5);
+  }
+  60% {
+    /* 450ms: maximum glow */
+    transform: translate(-50%, -50%) scale(1.18);
+    opacity: 1;
+    filter: drop-shadow(0 0 16px #FFFFFF) drop-shadow(0 0 32px #20CFFF) drop-shadow(0 0 48px #176FE5) drop-shadow(0 0 64px #102F63);
+  }
+  80% {
+    /* 600ms: sun/rays shrink and fade */
+    transform: translate(-50%, -50%) scale(1.04);
+    opacity: 0.45;
+    filter: drop-shadow(0 0 8px #20CFFF) drop-shadow(0 0 16px #176FE5);
+  }
+  100% {
+    /* 750ms: completely gone */
+    transform: translate(-50%, -50%) scale(0.82);
+    opacity: 0;
+    filter: drop-shadow(0 0 1px #20CFFF);
+  }
+}
+
+/* Radiant short sharp rays expansion and fade animation */
+.cyber-sun-rays {
+  transform-origin: 28px 28px;
+  animation: cyberSunRays 750ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberSunRays {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.2;
+  }
+  16% {
+    /* 120ms: emerging */
+    transform: scale(0.65);
+    opacity: 0.8;
+  }
+  40% {
+    /* 300ms: fully visible */
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  60% {
+    /* 450ms: maximum ray extent */
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  80% {
+    /* 600ms: shrinking and fading */
+    transform: scale(1.06);
+    opacity: 0.45;
+  }
+  100% {
+    /* 750ms: completely gone */
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+/* Marquee Keyframes & Animation Utilities */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap, 1rem)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+}

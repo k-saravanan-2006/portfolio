@@ -1,0 +1,46 @@
+/* ANTIGRAVITY DESIGN SYSTEM TOKENS */
+:root {
+  /* Atmosphere & Bedrock Colors */
+  --bg-deep: #050608;
+  --bg-surface: #0a0c10;
+  --bg-elevated: rgba(255, 255, 255, 0.03);
+  --bg-overlay: rgba(5, 6, 8, 0.85);
+
+  /* Luminescent Accents */
+  --accent-cyan: #38bdf8;
+  --accent-cyan-glow: rgba(56, 189, 248, 0.35);
+  --accent-blue: #0284c7;
+  --accent-indigo: #6366f1;
+  --accent-violet-glow: rgba(99, 102, 241, 0.25);
+
+  /* Monochromatic Text Hierarchy */
+  --text-primary: #f8fafc;
+  --text-secondary: rgba(248, 250, 252, 0.7);
+  --text-muted: rgba(248, 250, 252, 0.45);
+  --text-ghost: rgba(248, 250, 252, 0.2);
+
+  /* Precision Borders & Lines */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-active: rgba(56, 189, 248, 0.4);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+
+  /* Typography Fonts */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Motion & Easing Tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Transitions */
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-medium: 0.4s var(--ease-out-quint);
+  --transition-cinematic: 0.8s var(--ease-out-quint);
+
+  /* Layout & Spacing */
+  --container-max: 1380px;
+  --header-height: 60px;
+  --hud-height: 48px;
+}

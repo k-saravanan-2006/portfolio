@@ -1,0 +1,23 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: ["class"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        border: "hsl(var(--border, 240 3.7% 15.9%))",
+        input: "hsl(var(--input, 240 3.7% 15.9%))",
+        ring: "hsl(var(--ring, 240 4.9% 83.9%))",
+        background: "hsl(var(--background, 240 10% 3.9%))",
+        foreground: "hsl(var(--foreground, 0 0% 98%))",
+      },
+    },
+  },
+  plugins: [],
+};
